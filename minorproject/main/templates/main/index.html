@@ -16,15 +16,15 @@
     <title>Martfury - Multipurpose Marketplace HTML5 Template + Admin Template</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="fonts/Linearicons/Linearicons/Font/demo-files/demo.css">
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="plugins/slick/slick/slick.css">
-    <link rel="stylesheet" href="plugins/nouislider/nouislider.min.css">
-    <link rel="stylesheet" href="plugins/lightGallery-master/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
-    <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="{% static 'fonts/Linearicons/Linearicons/Font/demo-files/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl-carousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl-carousel/assets/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/slick/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/nouislider/nouislider.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/lightGallery-master/dist/css/lightgallery.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/select2/dist/css/select2.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/medicine.css' %}">
 </head>
@@ -62,7 +62,7 @@
         </div>
         <div class="header__content">
             <div class="ps-container">
-                <div class="header__content-left"><a class="ps-logo" href="index.html"><img src="img/logo-medicine.png" alt=""></a>
+                <div class="header__content-left"><a class="ps-logo" href="index.html"><img src="{% static 'img/logo-medicine.png' %}" alt=""></a>
                     <div class="menu--product-categories">
                         <div class="menu__toggle"><i class="icon-menu"></i></div>
                         <div class="menu__content">
@@ -105,13 +105,13 @@
                             <div class="ps-cart__content">
                                 <div class="ps-cart__items">
                                     <div class="ps-product--cart-mobile">
-                                        <div class="ps-product__thumbnail"><a href="#"><img src="img/products/clothing/7.jpg" alt=""></a></div>
+                                        <div class="ps-product__thumbnail"><a href="#"><img src="{% static 'img/products/clothing/7.jpg' %}" alt=""></a></div>
                                         <div class="ps-product__content"><a class="ps-product__remove" href="#"><i class="icon-cross"></i></a><a href="product-default.html">MVMTH Classical Leather Watch In Black</a>
                                             <p><strong>Sold by:</strong> YOUNG SHOP</p><small>1 x $59.99</small>
                                         </div>
                                     </div>
                                     <div class="ps-product--cart-mobile">
-                                        <div class="ps-product__thumbnail"><a href="#"><img src="img/products/clothing/5.jpg" alt=""></a></div>
+                                        <div class="ps-product__thumbnail"><a href="#"><img src="{% static 'img/products/clothing/5.jpg' %}" alt=""></a></div>
                                         <div class="ps-product__content"><a class="ps-product__remove" href="#"><i class="icon-cross"></i></a><a href="product-default.html">Sleeve Linen Blend Caro Pane Shirt</a>
                                             <p><strong>Sold by:</strong> YOUNG SHOP</p><small>1 x $59.99</small>
                                         </div>
@@ -358,10 +358,10 @@
                         </div>
                     </li>
                     <li>
-                        <div class="ps-dropdown language"><a href="#"><img src="img/flag/en.png" alt="">English</a>
+                        <div class="ps-dropdown language"><a href="#"><img src="{% static 'img/flag/en.png' %}" alt="">English</a>
                             <ul class="ps-dropdown-menu">
-                                <li><a href="#"><img src="img/flag/germany.png" alt=""> Germany</a></li>
-                                <li><a href="#"><img src="img/flag/fr.png" alt=""> France</a></li>
+                                <li><a href="#"><img src="{% static 'img/flag/germany.png' %}" alt=""> Germany</a></li>
+                                <li><a href="#"><img src="{% static 'img/flag/fr.png' %}" alt=""> France</a></li>
                             </ul>
                         </div>
                     </li>
@@ -369,20 +369,20 @@
             </div>
         </div>
         <div class="navigation--mobile">
-            <div class="navigation__left"><a class="ps-logo" href="index.html"><img src="img/logo-medicine.png" alt=""></a></div>
+            <div class="navigation__left"><a class="ps-logo" href="index.html"><img src="{% static 'img/logo-medicine.png' %}" alt=""></a></div>
             <div class="navigation__right">
                 <div class="header__actions">
                     <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span><i>0</i></span></a>
                         <div class="ps-cart__content">
                             <div class="ps-cart__items">
                                 <div class="ps-product--cart-mobile">
-                                    <div class="ps-product__thumbnail"><a href="#"><img src="img/products/clothing/7.jpg" alt=""></a></div>
+                                    <div class="ps-product__thumbnail"><a href="#"><img src="{% static 'img/products/clothing/7.jpg' %}" alt=""></a></div>
                                     <div class="ps-product__content"><a class="ps-product__remove" href="#"><i class="icon-cross"></i></a><a href="product-default.html">MVMTH Classical Leather Watch In Black</a>
                                         <p><strong>Sold by:</strong> YOUNG SHOP</p><small>1 x $59.99</small>
                                     </div>
                                 </div>
                                 <div class="ps-product--cart-mobile">
-                                    <div class="ps-product__thumbnail"><a href="#"><img src="img/products/clothing/5.jpg" alt=""></a></div>
+                                    <div class="ps-product__thumbnail"><a href="#"><img src="{% static 'img/products/clothing/5.jpg' %}" alt=""></a></div>
                                     <div class="ps-product__content"><a class="ps-product__remove" href="#"><i class="icon-cross"></i></a><a href="product-default.html">Sleeve Linen Blend Caro Pane Shirt</a>
                                         <p><strong>Sold by:</strong> YOUNG SHOP</p><small>1 x $59.99</small>
                                     </div>
@@ -418,7 +418,7 @@
             <div class="ps-cart--mobile">
                 <div class="ps-cart__content">
                     <div class="ps-product--cart-mobile">
-                        <div class="ps-product__thumbnail"><a href="#"><img src="img/products/clothing/7.jpg" alt=""></a></div>
+                        <div class="ps-product__thumbnail"><a href="#"><img src="{% static 'img/products/clothing/7.jpg' %}" alt=""></a></div>
                         <div class="ps-product__content"><a class="ps-product__remove" href="#"><i class="icon-cross"></i></a><a href="product-default.html">MVMTH Classical Leather Watch In Black</a>
                             <p><strong>Sold by:</strong> YOUNG SHOP</p><small>1 x $59.99</small>
                         </div>
@@ -763,9 +763,9 @@
                         <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12 ">
                             <div class="ps-medicine-top-banner">
                                 <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-                                    <div class="ps-banner"><a href="#"><img src="img/medicine/promotions/main-1.jpg" alt=""></a></div>
-                                    <div class="ps-banner"><a href="#"><img src="img/medicine/promotions/main-2.jpg" alt=""></a></div>
-                                    <div class="ps-banner"><a href="#"><img src="img/medicine/promotions/main-3.jpg" alt=""></a></div>
+                                    <div class="ps-banner"><a href="#"><img src="{% static 'img/medicine/promotions/main-1.jpg' %}" alt=""></a></div>
+                                    <div class="ps-banner"><a href="#"><img src="{% static 'img/medicine/promotions/main-2.jpg' %}" alt=""></a></div>
+                                    <div class="ps-banner"><a href="#"><img src="{% static 'img/medicine/promotions/main-3.jpg' %}" alt=""></a></div>
                                 </div>
                                 <div class="ps-block--site-features ps-block--site-features-2">
                                     <div class="ps-block__item">
@@ -799,7 +799,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12 "><a class="ps-collection" href="#"><img src="img/medicine/promotions/banner-2.jpg" alt=""></a><a class="ps-collection" href="#"><img src="img/medicine/promotions/banner-3.jpg" alt=""></a>
+                        <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12 "><a class="ps-collection" href="#"><img src="{% static 'img/medicine/promotions/banner-2.jpg' %}" alt=""></a><a class="ps-collection" href="#"><img src="{% static 'img/medicine/promotions/banner-3.jpg' %}" alt=""></a>
                         </div>
                     </div>
                 </section>
@@ -809,37 +809,37 @@
                     </div>
                     <div class="ps-section__content">
                         <div class="ps-section__column">
-                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="img/medicine/categories/1.jpg" alt="">
+                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="{% static 'img/medicine/categories/1.jpg' %}" alt="">
                                 <p>Ayush</p>
                             </div>
                         </div>
                         <div class="ps-section__column">
-                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="img/medicine/categories/2.jpg" alt="">
+                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="{% static 'img/medicine/categories/2.jpg' %}" alt="">
                                 <p>Fitness</p>
                             </div>
                         </div>
                         <div class="ps-section__column">
-                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="img/medicine/categories/3.jpg" alt="">
+                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="{% static 'img/medicine/categories/3.jpg' %}" alt="">
                                 <p>Personal Care</p>
                             </div>
                         </div>
                         <div class="ps-section__column">
-                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="img/medicine/categories/4.jpg" alt="">
+                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="{% static 'img/medicine/categories/4.jpg' %}" alt="">
                                 <p>Family Care</p>
                             </div>
                         </div>
                         <div class="ps-section__column">
-                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="img/medicine/categories/5.jpg" alt="">
+                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="{% static 'img/medicine/categories/5.jpg' %}" alt="">
                                 <p>Lifestyle</p>
                             </div>
                         </div>
                         <div class="ps-section__column">
-                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="img/medicine/categories/6.jpg" alt="">
+                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="{% static 'img/medicine/categories/6.jpg' %}" alt="">
                                 <p>Treatments</p>
                             </div>
                         </div>
                         <div class="ps-section__column">
-                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="img/medicine/categories/8.jpg" alt="">
+                            <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img src="{% static 'img/medicine/categories/8.jpg' %}" alt="">
                                 <p>Devices</p>
                             </div>
                         </div>
@@ -868,7 +868,7 @@
                         <div class="ps-section__content">
                             <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="5" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
                                 <div class="ps-product ps-product--inner ps-product--medicine">
-                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/deal-of-day/1.png" alt=""></a>
+                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/deal-of-day/1.png' %}" alt=""></a>
                                         <ul class="ps-product__actions">
                                             <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="icon-bag2"></i></a></li>
                                             <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -898,7 +898,7 @@
                                     </div>
                                 </div>
                                 <div class="ps-product ps-product--inner ps-product--medicine">
-                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/deal-of-day/2.png" alt=""></a>
+                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/deal-of-day/2.png' %}" alt=""></a>
                                         <ul class="ps-product__actions">
                                             <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="icon-bag2"></i></a></li>
                                             <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -928,7 +928,7 @@
                                     </div>
                                 </div>
                                 <div class="ps-product ps-product--inner ps-product--medicine">
-                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/deal-of-day/3.png" alt=""></a>
+                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/deal-of-day/3.png' %}" alt=""></a>
                                         <ul class="ps-product__actions">
                                             <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="icon-bag2"></i></a></li>
                                             <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -958,7 +958,7 @@
                                     </div>
                                 </div>
                                 <div class="ps-product ps-product--inner ps-product--medicine">
-                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/deal-of-day/4.png" alt=""></a>
+                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/deal-of-day/4.png' %}" alt=""></a>
                                         <ul class="ps-product__actions">
                                             <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="icon-bag2"></i></a></li>
                                             <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -988,7 +988,7 @@
                                     </div>
                                 </div>
                                 <div class="ps-product ps-product--inner ps-product--medicine">
-                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/deal-of-day/5.png" alt=""></a>
+                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/deal-of-day/5.png' %}" alt=""></a>
                                         <ul class="ps-product__actions">
                                             <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="icon-bag2"></i></a></li>
                                             <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -1018,7 +1018,7 @@
                                     </div>
                                 </div>
                                 <div class="ps-product ps-product--inner ps-product--medicine">
-                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/deal-of-day/6.png" alt=""></a>
+                                    <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/deal-of-day/6.png' %}" alt=""></a>
                                         <ul class="ps-product__actions">
                                             <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="icon-bag2"></i></a></li>
                                             <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -1057,26 +1057,26 @@
                     </div>
                     <div class="ps-section__content">
                         <div class="row">
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/1.png" alt=""></span><strong> Cancer</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/2.png" alt=""></span><strong> Respiratory</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/3.png" alt=""></span><strong> Pregnantation</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/4.png" alt=""></span><strong> Immunization</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/5.png" alt=""></span><strong> Dentomaxillofacial</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/6.png" alt=""></span><strong> Sexual</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/7.png" alt=""></span><strong> Osteoarthritis</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/8.png" alt=""></span><strong> Kidney</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/9.png" alt=""></span><strong> Liver / Hepatobiliary</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/10.png" alt=""></span><strong> Nutrition</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/11.png" alt=""></span><strong> Cardiac</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/12.png" alt=""></span><strong> Ear, nose and throat</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/13.png" alt=""></span><strong> Infectious</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/14.png" alt=""></span><strong> Genetic, immune, allergic</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/15.png" alt=""></span><strong> Hematology</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/16.png" alt=""></span><strong> Nerve</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/17.png" alt=""></span><strong> Stomach / Gastrointestinal</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/18.png" alt=""></span><strong> Opthamonology</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/19.png" alt=""></span><strong> Diabetes</strong></a></div>
-                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="img/medicine/concern/20.png" alt=""></span><strong> Baby &amp; Children</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/1.png' %}" alt=""></span><strong> Cancer</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/2.png' %}" alt=""></span><strong> Respiratory</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/3.png' %}" alt=""></span><strong> Pregnantation</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/4.png' %}" alt=""></span><strong> Immunization</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/5.png' %}" alt=""></span><strong> Dentomaxillofacial</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/6.png' %}" alt=""></span><strong> Sexual</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/7.png' %}" alt=""></span><strong> Osteoarthritis</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/8.png' %}" alt=""></span><strong> Kidney</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/9.png' %}" alt=""></span><strong> Liver / Hepatobiliary</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/10.png' %}" alt=""></span><strong> Nutrition</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/11.png' %}" alt=""></span><strong> Cardiac</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/12.png' %}" alt=""></span><strong> Ear, nose and throat</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/13.png' %}" alt=""></span><strong> Infectious</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/14.png' %}" alt=""></span><strong> Genetic, immune, allergic</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/15.png' %}" alt=""></span><strong> Hematology</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/16.png' %}" alt=""></span><strong> Nerve</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/17.png' %}" alt=""></span><strong> Stomach / Gastrointestinal</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/18.png' %}" alt=""></span><strong> Opthamonology</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/19.png' %}" alt=""></span><strong> Diabetes</strong></a></div>
+                            <div class="col-lg-3 col-sm-6 col-6"><a class="ps-link--concern" href="#"><span><img src="{% static 'img/medicine/concern/20.png' %}" alt=""></span><strong> Baby &amp; Children</strong></a></div>
                         </div>
                     </div>
                 </section>
@@ -1092,7 +1092,7 @@
                     <div class="ps-section__content">
                         <div class="ps-carousel--responsive owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="1000000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="true" data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
                             <div class="ps-product ps-product--medicine">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/1.jpg" alt="" /></a>
+                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/1.jpg' %}" alt="" /></a>
                                     <ul class="ps-product__actions">
                                         <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to Whishlist"><i class="icon-heart"></i></a></li>
@@ -1116,7 +1116,7 @@
                                 </div>
                             </div>
                             <div class="ps-product ps-product--medicine">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/2.jpg" alt="" /></a>
+                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/2.jpg' %}" alt="" /></a>
                                     <div class="ps-product__badge">-51%</div>
                                     <ul class="ps-product__actions">
                                         <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -1141,7 +1141,7 @@
                                 </div>
                             </div>
                             <div class="ps-product ps-product--medicine">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/3.jpg" alt="" /></a>
+                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/3.jpg' %}" alt="" /></a>
                                     <div class="ps-product__badge">-25%</div>
                                     <ul class="ps-product__actions">
                                         <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -1166,7 +1166,7 @@
                                 </div>
                             </div>
                             <div class="ps-product ps-product--medicine">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/4.jpg" alt="" /></a>
+                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/4.jpg' %}" alt="" /></a>
                                     <ul class="ps-product__actions">
                                         <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to Whishlist"><i class="icon-heart"></i></a></li>
@@ -1190,7 +1190,7 @@
                                 </div>
                             </div>
                             <div class="ps-product ps-product--medicine">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/5.jpg" alt="" /></a>
+                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/5.jpg' %}" alt="" /></a>
                                     <ul class="ps-product__actions">
                                         <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to Whishlist"><i class="icon-heart"></i></a></li>
@@ -1214,7 +1214,7 @@
                                 </div>
                             </div>
                             <div class="ps-product ps-product--medicine">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/6.jpg" alt="" /></a>
+                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/6.jpg' %}" alt="" /></a>
                                     <div class="ps-product__badge">-15%</div>
                                     <ul class="ps-product__actions">
                                         <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
@@ -1239,7 +1239,7 @@
                                 </div>
                             </div>
                             <div class="ps-product ps-product--medicine">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/medicine/products/7.jpg" alt="" /></a>
+                                <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/7.jpg' %}" alt="" /></a>
                                     <ul class="ps-product__actions">
                                         <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal" data-target="#product-quickview"><i class="icon-eye"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add to Whishlist"><i class="icon-heart"></i></a></li>
@@ -1265,10 +1265,10 @@
                         </div>
                     </div>
                 </section>
-                <section class="ps-medicine-subscribe bg--cover" data-background="img/medicine/subscribe-bg.jpg">
+                <section class="ps-medicine-subscribe bg--cover" data-background="img/medicine/subscribe-bg.jpg' %}">
                     <div class="ps-section__left">
                         <form class="ps-form--medicine-subscribe" action="http://nouthemes.net/html/martfury/index.html" method="get">
-                            <div class="ps-form__left"><img src="img/medicine/subscribe-icon.png" alt=""></div>
+                            <div class="ps-form__left"><img src="{% static 'img/medicine/subscribe-icon.png' %}" alt=""></div>
                             <div class="ps-form__right">
                                 <h3>Buy Medicines Faster With One Tap Away</h3>
                                 <p>Search & buy medicines faster on your mobile</p>
@@ -1279,9 +1279,9 @@
                             </div>
                         </form>
                     </div>
-                    <div class="ps-section__right"><a href="#"><img src="img/medicine/android.png" alt=""></a><a href="#"><img src="img/medicine/appstore.png" alt=""></a></div>
+                    <div class="ps-section__right"><a href="#"><img src="{% static 'img/medicine/android.png' %}" alt=""></a><a href="#"><img src="{% static 'img/medicine/appstore.png' %}" alt=""></a></div>
                 </section>
-                <section class="ps-medicine-promotion"><a class="ps-collection" href="#"><img src="img/medicine/promotions/1.jpg" alt=""></a></section>
+                <section class="ps-medicine-promotion"><a class="ps-collection" href="#"><img src="{% static 'img/medicine/promotions/1.jpg' %}" alt=""></a></section>
                 <section class="ps-medicine-brands-and-testimonial">
                     <div class="row">
                         <div class="col-lg-8 col-12">
@@ -1291,52 +1291,52 @@
                                 </div>
                                 <div class="ps-section__content">
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/1.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/1.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Accu-Check</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/2.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/2.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Dabur</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/3.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/3.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Dettol</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/4.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/4.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Durex</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/5.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/5.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Ensure</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/6.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/6.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Jiva Ayurveda</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/7.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/7.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Pampers</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/8.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/8.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Setu</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/9.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/9.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Sir Sir Tattva</a></div>
                                         </article>
                                     </div>
                                     <div class="ps-section__column">
-                                        <article class="ps-block--medicine-brand"><a href="#"><img src="img/medicine/brands/10.png" alt=""></a>
+                                        <article class="ps-block--medicine-brand"><a href="#"><img src="{% static 'img/medicine/brands/10.png' %}" alt=""></a>
                                             <div class="ps-block__content"><a href="#">Turmaboost</a></div>
                                         </article>
                                     </div>
@@ -1344,7 +1344,7 @@
                             </section>
                         </div>
                         <div class="col-lg-4 col-12">
-                            <section class="ps-medicine--section ps-medicine-testimonials bg--bottom" data-background="img/medicine/bg/testimonials.jpg">
+                            <section class="ps-medicine--section ps-medicine-testimonials bg--bottom" data-background="img/medicine/bg/testimonials.jpg' %}">
                                 <div class="ps-section__header">
                                     <h3>What Buyer Says</h3>
                                 </div>
@@ -1354,7 +1354,7 @@
                                             <p>“I ordered medicines and it was delivered right time. With big discount.”</p>
                                         </div>
                                         <div class="ps-block__author">
-                                            <div class="ps-block__author__thumbnail"><img src="img/users/2.png" alt=""></div>
+                                            <div class="ps-block__author__thumbnail"><img src="{% static 'img/users/2.png' %}" alt=""></div>
                                             <figure>
                                                 <figcaption>Robbie Kane</figcaption><span>Telesale at IBM Corp.</span>
                                             </figure>
@@ -1373,7 +1373,7 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="ps-post">
-                                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="img/medicine/blog/1.jpg" alt="">
+                                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="{% static 'img/medicine/blog/1.jpg' %}" alt="">
                                     </div>
                                     <div class="ps-post__content">
                                         <div class="ps-post__meta"><a href="#">Típ &amp; Trick</a></div><a class="ps-post__title" href="#">President Trumpt - Coronavirus Guidelines for America</a>
@@ -1383,7 +1383,7 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="ps-post">
-                                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="img/medicine/blog/2.jpg" alt="">
+                                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="{% static 'img/medicine/blog/2.jpg' %}" alt="">
                                     </div>
                                     <div class="ps-post__content">
                                         <div class="ps-post__meta"><a href="#">Review Products</a></div><a class="ps-post__title" href="#">What’s New In Amoxillin 2020?</a>
@@ -1393,7 +1393,7 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="ps-post">
-                                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="img/medicine/blog/3.jpg" alt="">
+                                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="{% static 'img/medicine/blog/3.jpg' %}" alt="">
                                     </div>
                                     <div class="ps-post__content">
                                         <div class="ps-post__meta"><a href="#">News</a></div><a class="ps-post__title" href="#">Become A Fresher In Minimalist Food Festival, Baroque?</a>
@@ -1403,7 +1403,7 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="ps-post">
-                                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="img/medicine/blog/3.jpg" alt="">
+                                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="{% static 'img/medicine/blog/3.jpg' %}" alt="">
                                     </div>
                                     <div class="ps-post__content">
                                         <div class="ps-post__meta"><a href="#">News</a></div><a class="ps-post__title" href="#">How To Make A Fresh Juice Blended For Your Family?</a>
@@ -1525,7 +1525,7 @@
                     </div>
                     <div class="ps-footer__copyright">
                         <p>&copy;2020 Martfury. All Rights Reserved</p>
-                        <p><span>We Using Safe Payment For:</span><a href="#"><img src="img/payment-method/1.jpg" alt=""></a><a href="#"><img src="img/payment-method/2.jpg" alt=""></a><a href="#"><img src="img/payment-method/3.jpg" alt=""></a><a href="#"><img src="img/payment-method/4.jpg" alt=""></a><a href="#"><img src="img/payment-method/5.jpg" alt=""></a></p>
+                        <p><span>We Using Safe Payment For:</span><a href="#"><img src="{% static 'img/payment-method/1.jpg' %}" alt=""></a><a href="#"><img src="{% static 'img/payment-method/2.jpg' %}" alt=""></a><a href="#"><img src="{% static 'img/payment-method/3.jpg' %}" alt=""></a><a href="#"><img src="{% static 'img/payment-method/4.jpg' %}" alt=""></a><a href="#"><img src="{% static 'img/payment-method/5.jpg' %}" alt=""></a></p>
                     </div>
                 </div>
             </footer>
@@ -1553,9 +1553,9 @@
                     <div class="ps-product__header">
                         <div class="ps-product__thumbnail" data-vertical="false">
                             <div class="ps-product__images" data-arrow="true">
-                                <div class="item"><img src="img/products/detail/fullwidth/1.jpg" alt=""></div>
-                                <div class="item"><img src="img/products/detail/fullwidth/2.jpg" alt=""></div>
-                                <div class="item"><img src="img/products/detail/fullwidth/3.jpg" alt=""></div>
+                                <div class="item"><img src="{% static 'img/products/detail/fullwidth/1.jpg' %}" alt=""></div>
+                                <div class="item"><img src="{% static 'img/products/detail/fullwidth/2.jpg' %}" alt=""></div>
+                                <div class="item"><img src="{% static 'img/products/detail/fullwidth/3.jpg' %}" alt=""></div>
                             </div>
                         </div>
                         <div class="ps-product__info">
@@ -1592,7 +1592,7 @@
             </div>
         </div>
     </div>
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script><script src="{% static 'plugins/jquery.min.js' %}"></script>
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflar- static/email-decode.min.js"></script><script src="{% static 'plugins/jquery.min.js' %}"></script>
     <script src="{% static 'plugins/nouislider/nouislider.min.js' %}"></script>
     <script src="{% static 'plugins/popper.min.js' %}"></script>
     <script src="{% static 'plugins/owl-carousel/owl.carousel.min.js' %}"></script>
