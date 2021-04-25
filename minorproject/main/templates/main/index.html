@@ -125,7 +125,11 @@
                         </div>
                         <div class="ps-block--user-header">
                             <div class="ps-block__left"><i class="icon-user"></i></div>
-                            <div class="ps-block__right"><a href="#">Login</a><a href="#">Register</a></div>
+                            {% if user.is_authenticated %}
+                            <div class="ps-block__right">hello {{ user.first_name }}<a href="{% url 'logout' %}">logout</a></div>
+                            {% else %}
+                            <div class="ps-block__right"><a href="{% url 'login' %}">Login</a><a href="{% url 'signup' %}">Register</a></div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -396,7 +400,11 @@
                     </div>
                     <div class="ps-block--user-header">
                         <div class="ps-block__left"><i class="icon-user"></i></div>
-                        <div class="ps-block__right"><a href="my-account.html">Login</a><a href="my-account.html">Register</a></div>
+                        {% if user.is_authenticated %}
+                        <div class="ps-block__right">hello {{ user.first_name }}<a href="{% url 'logout' %}">logout</a></div>
+                        {% else %}
+                        <div class="ps-block__right"><a href="{% url 'login' %}">Login</a><a href="{% url 'signup' %}">Register</a></div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -1080,17 +1088,20 @@
                         </div>
                     </div>
                 </section>
+                {% for key,value in products1.items %}
+ 
                 <section class="ps-medicine--section ps-medicine--recommended-products">
+                    
                     <div class="ps-section__header">
-                        <h3>Recommended Products</h3>
-                        <ul class="ps-section__links">
-                            <li class="active"><a href="shop-grid.html">New Arrivals</a></li>
-                            <li><a href="shop-grid.html">Best seller</a></li>
-                            <li><a href="shop-grid.html">Most Popular</a></li>
-                        </ul>
+                        <h3>{{key}}</h3>
+
                     </div>
+                    
+                    
+                    
                     <div class="ps-section__content">
                         <div class="ps-carousel--responsive owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="1000000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="true" data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
+                            {% for j in value %}
                             <div class="ps-product ps-product--medicine">
                                 <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/1.jpg' %}" alt="" /></a>
                                     <ul class="ps-product__actions">
@@ -1099,7 +1110,8 @@
                                         <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="icon-chart-bars"></i></a></li>
                                     </ul>
                                 </div>
-                                <div class="ps-product__container"><a class="ps-product__vendor" href="#">Danone Nutricia usa</a>
+                                
+                                <div class="ps-product__container"><a class="ps-product__vendor" href="#">{{j.medicinename}}</a>
                                     <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">Protinex Junior Choco Powder 400gm</a>
                                         <div class="ps-product__rating">
                                             <select class="ps-rating" data-read-only="true">
@@ -1110,11 +1122,12 @@
                                                 <option value="2">5</option>
                                             </select><span>10</span>
                                         </div>
-                                        <p class="ps-product__price">$55.68</p>
+                                        <p class="ps-product__price">{{j.mrp}}RS</p>
                                     </div>
                                     <div class="ps-product__add-to-cart"><a class="ps-btn ps-btn--fullwidth" href="#">Add To Cart</a></div>
                                 </div>
                             </div>
+                            {% endfor %}
                             <div class="ps-product ps-product--medicine">
                                 <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{% static 'img/medicine/products/2.jpg' %}" alt="" /></a>
                                     <div class="ps-product__badge">-51%</div>
@@ -1265,6 +1278,7 @@
                         </div>
                     </div>
                 </section>
+                {% endfor %}
                 <section class="ps-medicine-subscribe bg--cover" data-background="img/medicine/subscribe-bg.jpg' %}">
                     <div class="ps-section__left">
                         <form class="ps-form--medicine-subscribe" action="http://nouthemes.net/html/martfury/index.html" method="get">
