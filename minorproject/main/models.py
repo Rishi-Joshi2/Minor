@@ -11,13 +11,20 @@ class product_category(models.Model):
 
 class product(models.Model):
     medicinename=models.CharField(max_length=40)
+    productdescription=models.TextField(default="NULL",null=True)
+    keyingr=models.TextField(default="NULL",null=True)
     cat_id=models.ForeignKey(product_category, on_delete=models.CASCADE)
     prescriptiontype = (('T','True'),('F','False'))
-    
+    productpic = models.ImageField(null=True,blank=True ,upload_to = 'products')
     prescriptionreq = models.TextField(max_length=50, choices = prescriptiontype ,blank=True)
     mrp=models.IntegerField()
     medquantity=models.IntegerField()
-    meduses=models.CharField(max_length=80, null=True, default="NULL")
+    meduses=models.TextField(max_length=80, null=True, default="NULL")
+    safetyinfo=models.TextField(default="NULL",null=True)
+    brand=models.CharField(max_length=100,null=True ,default="NULL")
+    manufracturer=models.CharField(max_length=100 ,default="NULL", null=True)
+
+
     def __str__(self):
         return self.medicinename
 class cart(models.Model):
