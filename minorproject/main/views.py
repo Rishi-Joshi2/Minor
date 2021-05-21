@@ -31,3 +31,19 @@ def home(request):
     return render(request,'main/index.html', context)
 
 # Create your views here.
+
+def aboutus(request):
+    return render(request,'main/about-us.html')
+
+def policy(request):
+    return render(request,'main/policy.html')
+
+def termsCondition(request):
+    return render(request,'main/terms-condition.html')
+
+def shipping(request):
+    return render(request,'main/policy.html')
+
+def contactUs(request):
+    return render(request,'main/contact-us.html')
+    

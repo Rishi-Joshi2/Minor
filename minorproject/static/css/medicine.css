@@ -1,5 +1,5 @@
 .header--medicine .header__extra span {
-  background-color: #28afb1;
+  background-color: #ac28b1;
 }
 
 .header--medicine .header__extra span i {
@@ -16,7 +16,7 @@
 }
 
 .header--medicine .header__left p a:hover {
-  color: #28afb1;
+  color: #ac28b1;
 }
 
 .header--medicine .ps-form--quick-search {
@@ -30,29 +30,34 @@
 
 .header--medicine .ps-form--quick-search button {
   color: #fff;
-  background-color: #28afb1;
+  background-color: #ac28b1;
 }
 
 .header--medicine .ps-block--header-hotline p strong {
-  color: #28afb1;
+  color:#ac28b1 ;
 }
 
 .header--medicine .ps-block--user-header a:hover {
-  color: #28afb1;
+  color: #ac28b1;
 }
 
 .header--medicine .ps-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+ 
 }
 
 .header--medicine .ps-container > * {
   flex-basis: 100%;
+  
 }
+
+
 
 .header--medicine .ps-container .header__content-center {
   max-width: 100%;
+  
 }
 
 .header--medicine .ps-container .header__content-right {
@@ -60,16 +65,25 @@
 }
 
 .header--medicine .navigation {
-  background-color: #fff;
+  background-color: #f5c0f7;
   border-bottom: 1px solid #eaeaea;
+  
 }
 
 .header--medicine .menu--medicine {
   position: relative;
+  font-weight: 900;
+}
+
+.header--medicine .menu--medicine a{
+  font-weight: 550;
+  margin-left: 10px;
+  margin-right: 10px;
+  
 }
 
 .header--medicine .menu--medicine a:hover {
-  color: #28afb1 !important;
+  color: red !important;
 }
 
 .header--medicine .menu--medicine .has-mega-menu {
@@ -77,12 +91,14 @@
 }
 
 .header--medicine .menu--product-categories li:hover {
-  background-color: #28afb1;
+  background-color: red;
 }
 
 .header--medicine .menu--product-categories li:hover a {
   color: #fff;
 }
+
+
 
 .header--medicine .mega-menu {
   max-width: 960px;
@@ -118,12 +134,12 @@
 }
 
 #homepage-medicine a:hover {
-  color: #28afb1;
+  color: #ac28b1;
 }
 
 #homepage-medicine .ps-product .ps-product__actions li a:hover {
   color: #fff;
-  background-color: #28afb1;
+  background-color: #ac28b1;
 }
 
 #homepage-medicine .ps-link--concern {
@@ -144,7 +160,7 @@
 }
 
 #homepage-medicine .ps-link--concern:hover {
-  color: #28afb1;
+  color: #ac28b1;
 }
 
 @media screen and (min-width: 768px) {
@@ -182,15 +198,17 @@
 
 #homepage-medicine .ps-medicine-banner .ps-block--site-features {
   background-color: #fff;
+ 
 }
 
 #homepage-medicine .ps-medicine-banner .ps-block--site-features .ps-block__item {
   padding-top: 22px;
   padding-bottom: 22px;
+  
 }
 
 #homepage-medicine .ps-medicine-banner .ps-block--site-features .ps-block__left i {
-  color: #28afb1;
+  color: #ac28b1;
 }
 
 #homepage-medicine .ps-medicine--section {
@@ -253,7 +271,7 @@
 }
 
 #homepage-medicine .ps-section__links li a:hover {
-  color: #fcb800;
+  color: #ac28b1;
 }
 
 #homepage-medicine .ps-section__links li:last-child {
@@ -292,7 +310,7 @@
 }
 
 #homepage-medicine .ps-deal-of-day .ps-product .ps-product__price {
-  color: #690;
+  color: black;
   font-size: 18px;
   font-weight: 600;
 }
@@ -332,11 +350,11 @@
 }
 
 #homepage-medicine .ps-medicine-top-categories .ps-block--category:hover {
-  border-color: #28afb1;
+  border-color: #ac28b1;
 }
 
 #homepage-medicine .ps-medicine-top-categories .ps-block--category:hover p {
-  color: #28afb1;
+  color: #ac28b1;
 }
 
 #homepage-medicine .ps-medicine-top-categories .ps-section__column {
@@ -494,7 +512,7 @@
   transform: translateY(-50%);
   right: 10px;
   border: none;
-  color: #28afb1;
+  color: #ac28b1;
   background-color: transparent;
   text-transform: uppercase;
   font-weight: 600;
@@ -510,7 +528,7 @@
 
 #homepage-medicine .ps-medicine-subscribe .ps-form--medicine-subscribe .form-group input:focus {
   background-color: transparent;
-  border-bottom-color: #28afb1;
+  border-bottom-color: #ac28b1;
 }
 
 #homepage-medicine .ps-medicine-subscribe .ps-form--medicine-subscribe .ps-form__left {
