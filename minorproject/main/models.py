@@ -1,11 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-#images yet to be added and product category me fields shubham se confirm karna hai 
-#orders class to be formed
 
 class product_category(models.Model):
     cat_name=models.CharField(max_length=20)
     cat_description=models.CharField(max_length=100, default="Null")
+    cat_pic = models.ImageField(default='categories/test12.jpg',null=True,blank=True ,upload_to = 'categories')
     def __str__(self):
         return self.cat_name
 

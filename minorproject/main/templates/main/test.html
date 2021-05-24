@@ -65,12 +65,12 @@
                             
                             <div class="ps-cart__footer">
                                 <h3>Sub Total:<strong>Rs.0</strong></h3>
-                                <figure><a class="ps-btn" href="shopping-cart.html">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
+                                <figure><a class="ps-btn" href="{% url 'cart' %}">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
                             </div>
                         </div>
                     </div>
                     <div class="ps-block--user-header">
-                        <div class="ps-block__left"><i class="icon-user"></i></div>
+                        <div class="ps-block__left"><div class="ps-block__left"><a href="{% url 'user_information' %}"><i class="icon-user"></i></a></div></div>
 
                         {% if user.is_authenticated %}
                         <div class="ps-block__right">
@@ -80,7 +80,7 @@
                             </a>
                         </div>
                         {% else %}
-                        <div class="ps-block__right"><a href="{% url 'login' %}">Login</a><a href="{% url 'login' %}">Register</a></div>
+                        <div class="ps-block__right"><a href="{% url 'logReg' %}">Login</a><a href="{% url 'logReg' %}">Register</a></div>
                         {% endif %}
 
                     </div>
@@ -91,8 +91,8 @@
     <nav class="navigation">
         <div class="ps-container" >
             <ul class="menu menu--medicine">
-                <li class="menu-item-has-children "><a href="homepage-medicine.html">All Medicines</a>
-                    <div class="sub-menu">
+                <li><a href="{% url 'categories' %}">All Medicines</a>
+                    <!-- <div class="sub-menu">
                         <div class="mega-menu__column">
                             <span class="sub-toggle"></span>
                             <ul class="mega-menu__list">
@@ -106,10 +106,10 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </li>
-                <li class="menu-item-has-children"><a href="homepage-medicine.html">Coronavirus Prevention</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                    <ul class="sub-menu">
+                <li><a href="homepage-medicine.html">Coronavirus Prevention</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                    <!-- <ul class="sub-menu">
                         <li><a href="#">Sanitizers &amp; Handwash Products</a>
                         </li>
                         <li><a href="#">Masks</a>
@@ -118,7 +118,7 @@
                         </li>
                         <li><a href="#">Disinfectants</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
                 
                 <li><a href="homepage-medicine.html">Peronal Care</a>
@@ -130,6 +130,14 @@
                 </li>
                 <li><a href="homepage-medicine.html">Devices</a>
                 </li>
+
+
+                <li><a href="{% url 'contactUs' %}">Contact us</a>
+                </li>
+
+                <li><a href="{% url 'aboutus' %}">About Us</a>
+                </li>
+                
                 
             </ul>
         </div>
@@ -159,12 +167,12 @@
                         
                         <div class="ps-cart__footer">
                             <h3>Sub Total:<strong>Rs.0</strong></h3>
-                            <figure><a class="ps-btn" href="shopping-cart.html">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
+                            <figure><a class="ps-btn" href="{% url 'cart' %}">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
                         </div>
                     </div>
                 </div>
                 <div class="ps-block--user-header">
-                    <div class="ps-block__left"><i class="icon-user"></i></div>
+                    <div class="ps-block__left"><a href="#"><i class="icon-user"></i></a></div>
 
                     {% if user.is_authenticated %}
                     <div class="ps-block__right">
@@ -174,7 +182,7 @@
                         </a>
                     </div>
                     {% else %}
-                    <div class="ps-block__right"><a href="{% url 'login' %}">Login</a><a href="{% url 'login' %}">Register</a></div>
+                    <div class="ps-block__right"><a href="{% url 'logReg' %}">Login</a><a href="{% url 'logReg' %}">Register</a></div>
                     {% endif %}
 
                 </div>
@@ -207,7 +215,7 @@
             </div>
             <div class="ps-cart__footer">
                 <h3>Sub Total:<strong>$59.99</strong></h3>
-                <figure><a class="ps-btn" href="shopping-cart.html">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
+                <figure><a class="ps-btn" href="{% url 'cart' %}">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
             </div>
         </div>
     </div>
@@ -613,7 +621,7 @@
                         </div>
                     </div>
                     <div class="ps-footer__copyright">
-                        <p>&copy;2021 Navkar Medical. All Rights Reserved</p>
+                        <p>&copy;2021 Navkaar Medical. All Rights Reserved</p>
                         <p><span>We Using Safe Payment For:</span><a href="#"><img src="{% static 'img/payment-method/1.jpg' %}" alt=""></a><a href="#"><img src="{% static 'img/payment-method/2.jpg' %}" alt=""></a><a href="#"><img src="{% static 'img/payment-method/3.jpg' %}" alt=""></a><a href="#"><img src="{% static 'img/payment-method/4.jpg' %}" alt=""></a><a href="#"><img src="{% static 'img/payment-method/5.jpg' %}" alt=""></a></p>
                     </div>
                 </div>

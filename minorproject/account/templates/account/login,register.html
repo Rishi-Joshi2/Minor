@@ -1,12 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login & Resgister Form</title>
+	<title>Navkaar Medical | Login & Resgister Form</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}">
 </head>
 <body>
-asdasd
+	<center>
+	<h4>
+	{% for message in messages %}
+		{{ message }}
+	{% endfor %}
+	<h4>
+	</center>
+
  <div class="login-page">
  	<div class="box">
  		<div class="left">
@@ -19,45 +27,54 @@ asdasd
  		</div>
  		<div class="form">
  			 <!-- Login form Start -->
+			<form action ="{% url 'login' %}" method = "POST">
+			{% csrf_token %}
  			 <div class="login-form">
  			 	<h3>Log In</h3>
  			 	<div class="form-group">
- 			 		<input type="text" placeholder="Email Address*" class="form-control">
+ 			 		<input type="text" placeholder="Email Address*" class="form-control" name="email">
  			 	</div>
  			 	<div class="form-group">
- 			 		<input type="password" placeholder="Password*" class="form-control">
+ 			 		<input type="password" placeholder="Password*" class="form-control" name="pass2">
  			 	</div>
  			 	<div class="form-group">
  			 		<label>
  			 			<input type="checkbox"> Remember Me
  			 		</label>
  			 	</div>
- 			 	<button type="button" class="submit-btn">Login</button>
+ 			 	<button type="submit" class="submit-btn">Login</button>
  			 	<p><a href="#" class="register-btn">Register</a> | <a href="#" class="lost-pass-btn">Forgot Password ?</a></p>
  			 </div>
+			</form>
  			 <!-- Login form End -->
 
              <!-- Register form Start -->
+			 <form action ="{% url 'signup' %}" method = "POST">
+				{% csrf_token %}
  			 <div class="register-form form-hidden">
  			 	<h3>Register</h3>
  			 	<div class="form-group">
- 			 		<input type="text" placeholder="First Name*" class="form-control">
+ 			 		<input type="text" placeholder="First Name*" class="form-control" name="first_name">
  			 	</div>
  			 	<div class="form-group">
- 			 		<input type="text" placeholder="Last Name*" class="form-control">
+ 			 		<input type="text" placeholder="Last Name*" class="form-control" name="last_name">
  			 	</div>
  			 	<div class="form-group">
- 			 		<input type="text" placeholder="Email Address*" class="form-control">
+ 			 		<input type="text" placeholder="Email Address*" class="form-control" name="email">
  			 	</div>
+				<div class="form-group">
+					<input type="text" placeholder="Phone Number*" class="form-control" name="phnum">
+				</div>
  			 	<div class="form-group">
- 			 		<input type="password" placeholder="Password*" class="form-control">
+ 			 		<input type="password" placeholder="Password*" class="form-control" name="pass2">
  			 	</div>
  			 	
- 			 	<button type="button" class="submit-btn">Register</button>
+ 			 	<button type="submit" class="submit-btn">Register</button>
  			 	<p><a href="#" class="login-btn">Login</a> | <a href="#" class="lost-pass-btn">Forgot Password ?</a></p>
  			 </div>
+			</form>
  			 <!-- Register form End -->
-
+			
  			 <!-- Lost Password form Start -->
  			 <div class="lost-password-form form-hidden">
  			 	<h3>Forgot Password ?</h3>
@@ -77,6 +94,6 @@ asdasd
  	</div>
  </div>
 
- <script src="script.js"></script>
+ <script src="{% static 'accounts/script.js' %}"></script>
 </body>
 </html>

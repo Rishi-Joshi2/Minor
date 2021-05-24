@@ -1,0 +1,126 @@
+{% extends "main/test.html" %}
+{% load static %}
+
+{% block title %} Cart {% endblock title %}
+
+{% block mainblock %} 
+<div class="ps-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            
+        </ul>
+    </div>
+</div>
+    <div class="ps-section--shopping ps-shopping-cart">
+        <div class="container">
+            <div class="ps-section__header">
+                <h1>Cart Items</h1>
+            </div>
+            <div class="ps-section__content">
+                <div class="table-responsive">
+                    <table class="table ps-table--shopping-cart ps-table--responsive">
+                        <thead>
+                            <tr>
+                                <th>Product name</th>
+                                <th>PRICE</th>
+                                <th>QUANTITY</th>
+                                <th>TOTAL</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Product">
+                                    <div class="ps-product--cart">
+                                        <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/pic1.jpg" alt=""></a></div>
+                                        <div class="ps-product__content"><a href="product-default.html">Calpol 500mg</a>
+                                            <p><strong>15 Tablet(s) in Strip</strong></p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price" data-label="Price">Rs.15/-</td>
+                                <td data-label="Quantity">
+                                    <div class="form-group--number">
+                                        <button class="up">+</button>
+                                        <button class="down">-</button>
+                                        <input class="form-control" type="text" placeholder="1" value="1">
+                                    </div>
+                                </td>
+                                <td data-label="Total">Rs.15/-</td>
+                                <td data-label="Actions"><a href="#"><i class="icon-cross"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td data-label="Product">
+                                    <div class="ps-product--cart">
+                                        <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/pic2.jpg" alt=""></a></div>
+                                        <div class="ps-product__content"><a href="product-default.html">Combiflam Suspension</a>
+                                            <p><strong>60ml Liquid in Bottle</strong></p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price" data-label="Price">Rs.30/-</td>
+                                <td data-label="Quantity">
+                                    <div class="form-group--number">
+                                        <button class="up">+</button>
+                                        <button class="down">-</button>
+                                        <input class="form-control" type="text" placeholder="1" value="2">
+                                    </div>
+                                </td>
+                                <td data-label="Total">Rs.60/-</td>
+                                <td data-label="Actions"><a href="#"><i class="icon-cross"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td data-label="Product">
+                                    <div class="ps-product--cart">
+                                        <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/pic3.jpg" alt=""></a></div>
+                                        <div class="ps-product__content"><a href="product-default.html">Saridon Headache Relief Tablet</a>
+                                            <p><strong>10 Tablet(s) in Strip</strong></p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price" data-label="Price">Rs.30/-</td>
+                                <td data-label="Quantity">
+                                    <div class="form-group--number">
+                                        <button class="up">+</button>
+                                        <button class="down">-</button>
+                                        <input class="form-control" type="text" placeholder="1" value="3">
+                                    </div>
+                                </td>
+                                <td data-label="Total">Rs.90/-</td>
+                                <td data-label="Actions"><a href="#"><i class="icon-cross"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ps-section__cart-actions"><a class="ps-btn" href="{% url 'home' %}"><i class="icon-arrow-left"></i> Back to Shop</a></div>
+            </div>
+            <div class="ps-section__footer">
+                <div class="row">                    
+                   
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
+                        <div class="ps-block--shopping-total">
+                            <div class="ps-block__header">
+                                <p>Subtotal <span> Rs.165/-</span></p>
+                            </div>
+                            <div class="ps-block__content">
+                                <ul class="ps-block__product">
+                                    <li><span class="ps-block__shop">Calpol 500mg x 1</span><span class="ps-block__shipping">Strip of 15 Tablets</span><span class="ps-block__estimate"> Rs.15/-</span></li>
+                                    <li><span class="ps-block__shop">Combiflam Suspension x 2</span><span class="ps-block__shipping">60ml Bottle</span><span class="ps-block__estimate">Rs.60/-</span></li>
+                                    <li><span class="ps-block__shop">Saridon Headache Relief Tablet x 3</span><span class="ps-block__shipping">Strip of 10 Tablets</span><span class="ps-block__estimate">Rs.90/-</span></li>
+                                </ul>
+                                <h3>Total <span>Rs.165/-</span></h3>
+                            </div>
+                        </div><a class="ps-btn ps-btn--fullwidth" href="{% url 'checkout' %}">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ps-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+        </ul>
+    </div>
+</div>
+{% endblock mainblock %}

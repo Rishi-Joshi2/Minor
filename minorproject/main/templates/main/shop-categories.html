@@ -1,0 +1,86 @@
+{% extends "main/test.html" %}
+{% load static %}
+
+{% block title %} Categories {% endblock title %}
+
+{% block mainblock %} 
+    <div class="ps-breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Shop categories</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="homepage-medicine">
+        <main class="ps-main--medicine">
+            <div class="ps-container">
+                <section class="ps-medicine-brands-and-testimonial">
+                    <div class="row">
+                        <div class="col-lg-12 col-12">
+                            <section class="ps-medicine--section ps-medicine-brands">
+                                <div class="ps-section__header">
+                                    <h3>Categories </h3>
+                                </div>
+                                <div class="ps-section__content">
+                                    {% for i in cat %}
+                                        <div class="ps-section__column">
+                                            <article class="ps-block--medicine-brand"><a href="#"><img src="{{ i.cat_pic.url }}" alt=""></a>
+                                                <div class="ps-block__content"><a href="#"> {{ i.cat_name }} </a></div>
+                                            </article>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+
+                {% for key,value in products1.items %}
+                {% if value %}
+                <section class="ps-medicine--section ps-deal-of-day">
+                    <div class="ps-container">
+                        <div class="ps-section__header">
+                            <div class="ps-block--countdown-deal">
+                                <div class="ps-block__left">
+                                    <h3>{{ key }}</h3>
+                                </div>
+                               
+                            </div><a href="#">View all</a>
+                        </div>
+                        <div class="ps-section__content">
+                            <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="5" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
+                                {% for j in value %}
+                                <div class="ps-product ps-product--medicine">
+                                    <div class="ps-product__thumbnail"><a href="{% url 'product_details' j.id %}"><img src="{{ j.productpic.url }}" alt=""></a>
+                                        
+                                    </div>
+                                    
+                                    <div class="ps-product__container">
+                                        <p class="ps-product__price sale">Rs.{{ j.mrp }}
+                                            <!-- <del>Rs.500</del><small>18% off</small> -->
+                                        </p>
+                                        <div class="ps-product__content"><a class="ps-product__title" href="{% url 'product_details' j.id %}">{{ j.medicinename }}</a>
+                                         
+                                        </div>
+                                        <div class="ps-product__add-to-cart"><a class="ps-btn ps-btn--fullwidth" href="#">Add To Cart</a></div>
+                                    </div>
+                                    
+                                </div>
+                                {% endfor %}
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </main>
+    <!-- </div>   -->
+
+    
+    {% endblock mainblock %}
