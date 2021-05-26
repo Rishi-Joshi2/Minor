@@ -26,10 +26,17 @@ class product(models.Model):
 
     def __str__(self):
         return self.medicinename
+    
 class cart(models.Model):
-    cust_id=models.ForeignKey(User,on_delete=models.CASCADE)
+    cus_id=models.ForeignKey(User,on_delete=models.CASCADE)
     product_id=models.ForeignKey(product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    
     def __str__(self):
-        return self.cust_id.first_name
+        return self.cus_id.first_name
+
+    @property
+    def get_total_cart(self):
+        return self.quantity * self.product_id.mrp
 
 

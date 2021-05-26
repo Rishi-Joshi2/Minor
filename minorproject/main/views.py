@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect
+from django.http import JsonResponse
 from .models import *
+import json
+from django.db.models import Q
 
 
 def filtering_out_data_category_wise():
@@ -42,18 +45,61 @@ def shipping(request):
 def contactUs(request):
     return render(request,'main/contact-us.html')
     
-def cart(request):
+def cart1(request):
     user = request.user
     if user.is_authenticated:
-        return render(request,'main/cart.html')
+        try:
+            c = cart.objects.filter(cus_id = request.user)
+        except:
+            print("cart query not matched")
+            c = None
+        
+        
+        print(c)
+        amount = 0
+        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+        for p in cart_product:
+            tempamount = (p.quantity*p.product_id.mrp)
+            amount+=tempamount
+
+        totalpurchased = len(cart_product)
+        data = {
+            'totalpurchased':totalpurchased,
+            'amount':amount
+        }
+        data['cart'] = c
+        print(data['cart'])
+        return render(request,'main/cart.html',data)
     else:
         return redirect('login')
 
 def checkout(request):
     user = request.user
     if user.is_authenticated:
-        context = {'user':user}
-        return render(request,'main/checkout.html',context)
+        try:
+            c = cart.objects.filter(cus_id = request.user)
+        except:
+            print("cart query not matched")
+            c = None
+        
+        
+        print(c)
+        amount = 0
+        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+        for p in cart_product:
+            tempamount = (p.quantity*p.product_id.mrp)
+            amount+=tempamount
+
+        totalpurchased = len(cart_product)
+        data = {
+            'totalpurchased':totalpurchased,
+            'amount':amount
+        }
+        data['cart'] = c
+        print(data['cart'])
+        return render(request,'main/checkout.html',data)
     else:
         return redirect('login')
 
@@ -61,7 +107,11 @@ def categories(request):
     cat = product_category.objects.all()
     products1=filtering_out_data_category_wise()
     print(products1)
-    context={'cat':cat,'products1':products1}
+    cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+    totalpurchased = len(cart_product)
+    
+    context={'cat':cat,'products1':products1,'totalpurchased':totalpurchased}
     return render(request,'main/shop-categories.html',context)
 
 def product_details(request,pk):
@@ -71,3 +121,120 @@ def product_details(request,pk):
 
     context = {'product_information':product_information}
     return render(request,'main/product-default.html',context)
+
+def add_to_cart(request):
+    if request.method == 'GET':
+        prod_id = request.GET['prod_id']
+        print(prod_id)
+        product_information = product.objects.get(pk = prod_id)
+        print(product_information)
+        user = request.user
+        try:
+            c = cart.objects.get(cus_id = request.user,product_id=product_information)
+        except:
+            print("cart query not matched")
+            c = None
+        
+        print(c)
+        if c:
+            c.quantity+=1
+            c.save()
+        else:
+            cont_obj = cart(cus_id = user,product_id=product_information, quantity=1)
+            cont_obj.save()
+            c = cart.objects.get(cus_id = user,product_id=product_information)
+        amount = 0
+        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+        sumofitem = c.get_total_cart
+        for p in cart_product:
+            tempamount = (p.quantity*p.product_id.mrp)
+            amount+=tempamount
+
+        totalpurchased = len(cart_product)
+        data = {
+            'sumofitem': sumofitem,
+            'quantity':c.quantity,
+            'totalpurchased':totalpurchased,
+            'amount':amount
+        }
+    # print("\U0001f600")
+    return JsonResponse(data)
+
+def minus_cart(request):
+    if request.method == 'GET':
+        prod_id = request.GET['prod_id']
+        print(prod_id)
+        product_information = product.objects.get(pk = prod_id)
+        print(product_information)
+        user = request.user
+        try:
+            c = cart.objects.get(cus_id = user,product_id=product_information)
+        except:
+            print("cart query not matched")
+            c = None
+        
+        print(c)
+        if c:
+            c.quantity-=1
+            c.save()
+        else:
+            cont_obj = cart(cus_id = user,product_id = product, quantity=1)
+            cont_obj.save()
+            c = cart.objects.get(product_id=prod_id,cus_id = request.user)
+
+        try:
+            test = cart.objects.filter(cus_id = request.user)
+            print("this is also working",test)
+            for i in test:
+                print(i,i.quantity)
+                if i.quantity == 0:
+                    print("deleting:-",i.product_id.medicinename)
+                    i.delete()
+        except:
+            print("hehehehe")
+
+        amount = 0
+        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+        for p in cart_product:
+            tempamount = (p.quantity*p.product_id.mrp)
+            amount+=tempamount
+
+        totalpurchased = len(cart_product)
+        data = {
+            'quantity':c.quantity,
+            'totalpurchased':totalpurchased,
+            'amount':amount
+        }
+    return JsonResponse(data)
+
+def removecart(request):
+    if request.method == 'GET':
+        prod_id = request.GET['prod_id']
+        print(prod_id)
+        product_information = product.objects.get(pk = prod_id)
+        print(product_information)
+        user = request.user
+        try:
+            c = cart.objects.get(cus_id = request.user,product_id=product_information)
+        except:
+            print("cart query not matched")
+            c = None
+        
+        print(c)
+        if c:
+            c.delete()
+        amount = 0
+        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+        for p in cart_product:
+            tempamount = (p.quantity*p.product_id.mrp)
+            amount+=tempamount
+
+        totalpurchased = len(cart_product)
+        data = {
+            'totalpurchased':totalpurchased,
+            'amount':amount
+        }
+    return JsonResponse(data)

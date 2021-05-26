@@ -13,6 +13,13 @@
         </div>
     </div>
 
+    <div class="alert alert-success collapse alert-fixed" id = "myAlert">
+        <button type="button" id="linkClose" class="close">&times;</button>
+        <center><strong>Success!</strong> Item added successfully :D</center>
+    </div>
+    
+    
+
     <div id="homepage-medicine">
         <main class="ps-main--medicine">
             <div class="ps-container">
@@ -64,7 +71,11 @@
                                         <div class="ps-product__content"><a class="ps-product__title" href="{% url 'product_details' j.id %}">{{ j.medicinename }}</a>
                                          
                                         </div>
-                                        <div class="ps-product__add-to-cart"><a class="ps-btn ps-btn--fullwidth" href="#">Add To Cart</a></div>
+                                        {% if request.user.is_authenticated %}
+                                        <div class="ps-product__add-to-cart"><button class="ps-btn ps-btn--fullwidth itee" pid={{j.id}} id = {{j.id}}>Add To Cart</button></div>
+                                        {% else %}
+                                        <div class="ps-product__add-to-cart"><a class="ps-btn ps-btn--fullwidth itee" pid={{j.id}} href="{% url 'login' %}">Add To Cart</a></div>
+                                        {% endif %}
                                     </div>
                                     
                                 </div>

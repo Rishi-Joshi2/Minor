@@ -1,0 +1,6 @@
+1) Cart page:
+        when the quantity goes less than 1 by pressing minus button, that medicine will dissapear, but when we reload the
+        page with f5, the medicine next to it will show quantity as 0.
+        -> Database working fine.
+        -> Ajax working fine.
+        -> Error may be in html.

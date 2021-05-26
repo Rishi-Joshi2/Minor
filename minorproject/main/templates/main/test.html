@@ -60,7 +60,7 @@
                             <p><strong><a href="upload.html">Upload Prescription</a></strong></p>
                         </div>
                     </div>
-                    <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span><i>0</i></span></a>
+                    <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span id = "totalpurchased1"><i>{{totalpurchased}}</i></span></a>
                         <div class="ps-cart__content">
                             
                             <div class="ps-cart__footer">
@@ -162,7 +162,7 @@
         <div class="navigation__left"><a class="ps-logo" href="index.html"><img src="{% static 'img/LOGO_3.svg' %}" alt=""></a></div>
         <div class="navigation__right">
             <div class="header__actions">
-                <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span><i>0</i></span></a>
+                <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span id = "totalpurchased1"><i>{{totalpurchased}}</i></span></a>
                     <div class="ps-cart__content">
                         
                         <div class="ps-cart__footer">
@@ -575,7 +575,7 @@
 
                                                     <li><a href="{% url 'policy' %}">Policy</a></li>
                                                     <li><a href="{% url 'termsCondition' %}">Term & Conditions</a></li>
-                                                    <li><a href="{% url 'shipping' %}">Shipping</a></li>
+                                                    <!-- <li><a href="{% url 'shipping' %}">Shipping</a></li> -->
                                                     <!-- <li><a href="#">Return</a></li> -->
 
                                                 </ul>
@@ -690,6 +690,7 @@
         </div>
     </div>
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflar- static/email-decode.min.js"></script><script src="{% static 'plugins/jquery.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'plugins/nouislider/nouislider.min.js' %}"></script>
     <script src="{% static 'plugins/popper.min.js' %}"></script>
     <script src="{% static 'plugins/owl-carousel/owl.carousel.min.js' %}"></script>
@@ -706,6 +707,7 @@
     <script src="{% static 'plugins/select2/dist/js/select2.full.min.js' %}"></script>
     <script src="{% static 'plugins/gmap3.min.js' %}"></script>
     <!-- custom scripts-->
+    <script src="{% static 'js/mycart.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 

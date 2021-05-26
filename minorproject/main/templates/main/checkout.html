@@ -11,6 +11,11 @@
         </ul>
     </div>
 </div>
+
+<div class="alert alert-danger collapse alert-fixed" id = "myAlert">
+    <button type="button" id="linkClose" class="close">&times;</button>
+    <center><strong>Error!</strong> Please update your Shipping Address first :D</center>
+</div>
         <section class="ps-section--account ps-checkout">
             <div class="container">
                 <div class="ps-section__header">
@@ -25,7 +30,7 @@
                                         <h3 class="ps-form__heading">Contact Detail</h3>
                                         <div class="form-group">
                                             <label>Email or Phone number</label>
-                                            <input class="form-control" type="text" placeholder="">
+                                            <input class="form-control" type="text" placeholder="{{ user.profile.phone_number }}" disabled>
                                         </div>
                                         
                                         <h3 class="ps-form__heading">Shipping Address</h3>
@@ -43,6 +48,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {% if user.profile.address1 != "Null" %}
                                         <div class="form-group">
                                             <label>Address</label>
                                             <input class="form-control" type="text"  value="{{ user.profile.address1 }}" disabled>
@@ -62,28 +68,42 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {% else %}
+                                        <div class="form-group">
+                                            <label>Address*</label>
+                                        </div>
                                         <div class="form-group">
                                             <div class="ps-checkbox">
-                                                <!-- <input class="form-control" type="checkbox" id="save-next-time" placeholder="">
-                                                <label for="save-next-time">Keep me up to date on news and exclusive offers?</label> -->
+                                                <label for="save-next-time">You have not updated your shipping address yet. <a href="{% url 'address' %}" class="ps-product__title" style="color:#e664ef;">Update Now?</a></label>
                                             </div>
                                         </div>
+                                        {% endif %}
+                                        
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                                     <div class="ps-block--checkout-order">
+
                                         <div class="ps-block__content">
                                             <figure>
                                                 <figcaption><strong>Product</strong><strong>Total</strong></figcaption>
                                             </figure>
-                                            <figure class="ps-block__items"><a href="#"><strong>Calpol 500mg x1</strong><small>Rs.15/-</small></a><a href="#"><strong>Combiflam Suspension x2</strong><small>Rs.60/-</small></a><a href="#"><strong>Saridon Headache Relief Tablet x3</strong><small>Rs.90/-</small></a>
+                                            <figure class="ps-block__items">
+                                                {% for i in cart %}
+                                                    <a href="{% url 'product_details' i.product_id.id %}"><strong>{{ i.product_id.medicinename }} x{{ i.quantity }}</strong><small>Rs.{{ i.get_total_cart }}/-</small></a>
+                                                {% endfor %}
                                             </figure>
                                             <figure>
-                                                <figcaption><strong>Subtotal</strong><strong>Rs.165/-</strong></figcaption>
+                                                <figcaption><strong>Subtotal</strong><strong>Rs.{{ amount }}/-</strong></figcaption>
                                             </figure>
-                                            <a class="ps-btn ps-btn--fullwidth" href="#">Proceed to payment</a>
+                                            {% if user.profile.address1 != "Null" %}
+                                                <a class="ps-btn ps-btn--fullwidth" href="#">Proceed to payment</a>
+                                            {% else %}
+                                                <a class="ps-btn ps-btn--fullwidth btnSubmit" id="btnSubmit" href="#">Proceed to payment</a>
+                                            {% endif %}
                                             
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
