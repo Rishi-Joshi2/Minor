@@ -22,7 +22,8 @@
                     <h3>Checkout Information</h3>
                 </div>
                 <div class="ps-section__content">
-                    <form class="ps-form--checkout" action="http://nouthemes.net/html/martfury/index.html" method="get">
+                    <form class="ps-form--checkout" action="{% url 'payment_done' %}" method="POST">
+                        {% csrf_token %}
                         <div class="ps-form__content">
                             <div class="row">
                                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 ">
@@ -97,7 +98,7 @@
                                                 <figcaption><strong>Subtotal</strong><strong>Rs.{{ amount }}/-</strong></figcaption>
                                             </figure>
                                             {% if user.profile.address1 != "Null" %}
-                                                <a class="ps-btn ps-btn--fullwidth" href="#">Proceed to payment</a>
+                                                <button type="submit" class="ps-btn ps-btn--fullwidth">Proceed to payment</a>
                                             {% else %}
                                                 <a class="ps-btn ps-btn--fullwidth btnSubmit" id="btnSubmit" href="#">Proceed to payment</a>
                                             {% endif %}

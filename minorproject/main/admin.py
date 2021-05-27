@@ -7,3 +7,4 @@ from .models import *
 admin.site.register(cart)
 admin.site.register(product)
 admin.site.register(product_category)
+admin.site.register(order)

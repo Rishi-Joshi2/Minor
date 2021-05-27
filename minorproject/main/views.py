@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from .models import *
 import json
 from django.db.models import Q
-
+from datetime import datetime
 
 def filtering_out_data_category_wise():
     data = product.objects.all()
@@ -107,7 +107,12 @@ def categories(request):
     cat = product_category.objects.all()
     products1=filtering_out_data_category_wise()
     print(products1)
+    # temp1 = {}
+    # for i in products1:
+    #     temp = product_category.objects.get(cat_name = i)
+    #     temp1[temp.cat_name]=(temp.id)
     cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+    # print(temp1)
 
     totalpurchased = len(cart_product)
     
@@ -238,3 +243,29 @@ def removecart(request):
             'amount':amount
         }
     return JsonResponse(data)
+
+def category(request,catid):
+    print(catid)
+    try:
+        spe = product_category.objects.get(pk=catid)
+    except:
+        return render(request,'main/404-page.html')
+    print(spe)
+    products_details = product.objects.filter(cat_id=spe)
+    print(products_details)
+    context = {'spe':spe,'value':products_details}
+    return render(request,'main/shop-default.html',context)
+
+
+def payment_done(request):
+    if request.method == "POST":
+        user = request.user
+        c = cart.objects.filter(cus_id = user)
+        d = datetime.now()
+        for i in c:
+            order(cus_id=user, product_id=i.product_id,quantity=i.quantity,address_ordered=user.profile.address1,pincode_ordered=user.profile.pincode1,date_ordered=d).save()
+            i.delete()
+        return render(request,'main/success.html')
+    else:
+        return redirect('home')
+    

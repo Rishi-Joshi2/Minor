@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 
 class product_category(models.Model):
     cat_name=models.CharField(max_length=20)
@@ -40,3 +41,12 @@ class cart(models.Model):
         return self.quantity * self.product_id.mrp
 
 
+class order(models.Model):
+    cus_id=models.ForeignKey(User,on_delete=models.CASCADE)
+    product_id=models.ForeignKey(product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    address_ordered = models.TextField(max_length=150)
+    pincode_ordered = models.CharField(max_length=15)
+    date_ordered = models.DateTimeField()
+    STATUS_CHOICE = (('Accepted','Accepted'),('Packed','Packed'),('On the Way','On the Way'),('Delivered','Delivered'),('Canceled','Canceled'),('Pending','Pending'))
+    status = models.CharField(max_length=50, choices = STATUS_CHOICE ,default='Pending')
