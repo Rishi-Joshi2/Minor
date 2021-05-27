@@ -43,6 +43,18 @@
         5. HELPERS
         6. CUSTOM
 */
+.not-visible{
+  display: none;
+}
+
+.result-card{
+  width: 50%;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
+  border-radius: 7px;
+  padding: 15px 15px;
+  margin: 0 auto;
+}
 
 .alert-fixed {
   position:fixed; 

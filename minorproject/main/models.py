@@ -50,3 +50,17 @@ class order(models.Model):
     date_ordered = models.DateTimeField()
     STATUS_CHOICE = (('Accepted','Accepted'),('Packed','Packed'),('On the Way','On the Way'),('Delivered','Delivered'),('Canceled','Canceled'),('Pending','Pending'))
     status = models.CharField(max_length=50, choices = STATUS_CHOICE ,default='Pending')
+
+
+    # order_id = models.CharField(unique=True, max_length=100, null=True, blank=True, default=None) 
+    # razorpay_order_id = models.CharField(max_length=500, null=True, blank=True)
+    # razorpay_payment_id = models.CharField(max_length=500, null=True, blank=True)
+    # razorpay_signature = models.CharField(max_length=500, null=True, blank=True)    
+
+    # def save(self, *args, **kwargs):
+    #     if self.order_id is None and self.datetime_of_payment and self.id:
+    #         self.order_id = self.datetime_of_payment.strftime('PAY2ME%Y%m%dODR') + str(self.id)
+    #     return super().save(*args, **kwargs)
+
+    # def __str__(self):
+    #     return self.user.email + " " + str(self.id)

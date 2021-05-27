@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.http import JsonResponse
 from .models import *
 import json
@@ -71,35 +71,6 @@ def cart1(request):
         data['cart'] = c
         print(data['cart'])
         return render(request,'main/cart.html',data)
-    else:
-        return redirect('login')
-
-def checkout(request):
-    user = request.user
-    if user.is_authenticated:
-        try:
-            c = cart.objects.filter(cus_id = request.user)
-        except:
-            print("cart query not matched")
-            c = None
-        
-        
-        print(c)
-        amount = 0
-        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
-
-        for p in cart_product:
-            tempamount = (p.quantity*p.product_id.mrp)
-            amount+=tempamount
-
-        totalpurchased = len(cart_product)
-        data = {
-            'totalpurchased':totalpurchased,
-            'amount':amount
-        }
-        data['cart'] = c
-        print(data['cart'])
-        return render(request,'main/checkout.html',data)
     else:
         return redirect('login')
 
@@ -256,16 +227,81 @@ def category(request,catid):
     context = {'spe':spe,'value':products_details}
     return render(request,'main/shop-default.html',context)
 
+import razorpay
+from django.contrib.sites.shortcuts import get_current_site
 
-def payment_done(request):
-    if request.method == "POST":
-        user = request.user
-        c = cart.objects.filter(cus_id = user)
-        d = datetime.now()
-        for i in c:
-            order(cus_id=user, product_id=i.product_id,quantity=i.quantity,address_ordered=user.profile.address1,pincode_ordered=user.profile.pincode1,date_ordered=d).save()
-            i.delete()
-        return render(request,'main/success.html')
+def checkout(request):
+    user = request.user
+    if user.is_authenticated:
+        try:
+            c = cart.objects.filter(cus_id = request.user)
+        except:
+            print("cart query not matched")
+            c = None
+        
+        
+        print(c)
+        amount = 0
+        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+        for p in cart_product:
+            tempamount = (p.quantity*p.product_id.mrp)
+            amount+=tempamount
+
+        totalpurchased = len(cart_product)
+
+        final_price = amount
+
+        order_currency = 'INR'
+
+        callback_url = 'http://'+ str(get_current_site(request))+"/handlerequest/"
+        print(callback_url)
+        notes = {'order-type': "basic order from the website", 'key':'value'}
+        temp = "workplease"
+        razorpay_client = razorpay.Client(auth=('rzp_test_OrSWAaMq9arlUq', 'fjmPCsbhR7rTduZmLIhlapCh'))
+        razorpay_order = razorpay_client.order.create(dict(amount=final_price*100, currency=order_currency, notes = notes, receipt=temp, payment_capture='0'))
+        print(razorpay_order['id'])
+        final_amount2 = amount*100
+        data = {
+            'totalpurchased':totalpurchased,
+            'amount':amount,
+            'order_id': razorpay_order['id'], 
+            'orderId':temp, 
+            'final_price':final_price, 
+            'callback_url':callback_url,
+            'final_amount2':final_amount2
+        }
+        data['cart'] = c
+        print(data['cart'])
+        return render(request,'main/checkout.html',data)
     else:
-        return redirect('home')
-    
+        return redirect('login')
+
+
+
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+def handlerequest(request):
+    if request.method == "POST":
+        user =request.user
+
+        c = cart.objects.filter(cus_id = request.user)
+        d=datetime.now()
+        for i in c:
+            
+            x = order(cus_id=user, product_id=i.product_id,quantity=i.quantity,address_ordered=user.profile.address1,pincode_ordered=user.profile.pincode1,date_ordered=d)
+            x.save()
+            i.delete()
+
+        return render(request, 'main/success.html')
+
+def autocomplete(request):
+    if 'term' in request.GET:
+        qs = product.objects.filter(medicinename__icontains=request.GET.get('term'))
+        titles = list()
+        print("kuch to ho rha hai")
+        for i in qs:
+            titles.append(i.title)
+        # titles = [product.title for product in qs]
+        return JsonResponse(titles, safe=False)
+    return render(request, 'core/home.html')

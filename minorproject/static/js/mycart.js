@@ -1,3 +1,30 @@
+// $(function () {
+//     $("#product").autocomplete({
+//         source: ['js','python','php']
+//     });
+// });
+
+// $(function () {
+//     $("#product2").autocomplete({
+//         source: ['js','python','php']
+//     });
+// });
+
+// $(function () {
+//     $("#product3").autocomplete({
+//         source: ['js','python','php']
+//     });
+// });
+
+console.log('hello world')
+const url = window.location.href
+const searchForm = document.getElementById('search-form')
+const searchInput = document.getElementById('search-input')
+const resultBox = document.getElementById('result-box')
+
+const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+console.log(csrf)
+
 $(document).ready(function () {
     $('#btnSubmit').click(function () {
         $('#myAlert').show('fade');

@@ -22,7 +22,7 @@
                     <h3>Checkout Information</h3>
                 </div>
                 <div class="ps-section__content">
-                    <form class="ps-form--checkout" action="{% url 'payment_done' %}" method="POST">
+                    <form class="ps-form--checkout" action="" method="POST">
                         {% csrf_token %}
                         <div class="ps-form__content">
                             <div class="row">
@@ -98,7 +98,34 @@
                                                 <figcaption><strong>Subtotal</strong><strong>Rs.{{ amount }}/-</strong></figcaption>
                                             </figure>
                                             {% if user.profile.address1 != "Null" %}
-                                                <button type="submit" class="ps-btn ps-btn--fullwidth">Proceed to payment</a>
+                                                <button id="rzp-button1" type="button" class="ps-btn ps-btn--fullwidth">Proceed to payment</a>
+                                                    <!-- <input id = "{{order_id}}" type="hidden"> -->
+                                                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                                                    <script>
+                                                        var order_id = document.getElementById('rzp-button1')
+                                                        var options = {
+                                                            "key": "rzp_test_OrSWAaMq9arlUq", // Enter the Key ID generated from the Dashboard
+                                                            "amount": "{{final_amount2}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                                                            "currency": "INR",
+                                                            "name": "Navkaar Medical",
+                                                            "description": "Test Transaction",
+                                                            //"order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                                                            "callback_url": "{{callback_url}}",
+                                                            "prefill": {
+                                                            "name": "{{request.user.name}}",
+                                                            "email": "{{request.user.email}}",
+                                                            "contact": "+91" + "{{request.user.profile.phone_number}}"
+                                                            },
+                                                            "theme": {
+                                                            "color": "#2BA977"
+                                                            }
+                                                        };
+                                                        var rzp1 = new Razorpay(options);
+                                                        document.getElementById('rzp-button1').onclick = function (e) {
+                                                            rzp1.open();
+                                                            e.preventDefault();
+                                                        }
+                                                    </script>
                                             {% else %}
                                                 <a class="ps-btn ps-btn--fullwidth btnSubmit" id="btnSubmit" href="#">Proceed to payment</a>
                                             {% endif %}

@@ -12,6 +12,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Navkaar Medical | {% block title %} {% endblock title %}</title>
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
     <link rel = "icon" href ="{% static 'img/logo_4.svg' %}" type="image/icon type">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}">
@@ -38,7 +39,8 @@
                 
             </div>
             <div class="header__content-center">
-                <form class="ps-form--quick-search" method="get">
+                <form id="search-form" class="ps-form--quick-search" autocomplete="off">
+                    {% csrf_token %}
                     <div class="form-group--icon"><i class="icon-chevron-down"></i>
                         <select class="form-control">
                             <option value="1">All</option>
@@ -47,8 +49,11 @@
                             <option value="4">Syrup</option> -->
                         </select>
                     </div>
-                    <input class="form-control" type="text" placeholder="Search something here...">
+                    
+                    <input class="form-control" type="text" placeholder="Search something here..." name="product" id="search-input">
+                    <div id="result-box" class="result-card not-visible">Test</div>
                     <button>Search</button>
+
                 </form>
             </div>
 
@@ -192,7 +197,7 @@
     <div class="ps-search--mobile">
         <form class="ps-form--search-mobile" method="get">
             <div class="form-group--nest">
-                <input class="form-control" type="text" placeholder="Search something...">
+                <input class="form-control" type="text" placeholder="Search something..." name="product2" id="product2">
                 <button><i class="icon-magnifier"></i></button>
             </div>
         </form>
@@ -323,7 +328,7 @@
     <div class="ps-panel__header">
         <form class="ps-form--search-mobile" method="get">
             <div class="form-group--nest">
-                <input class="form-control" type="text" placeholder="Search something...">
+                <input class="form-control" type="text" placeholder="Search something..." name="product3" id="product3">
                 <button><i class="icon-magnifier"></i></button>
             </div>
         </form>
@@ -689,6 +694,8 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflar- static/email-decode.min.js"></script><script src="{% static 'plugins/jquery.min.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'plugins/nouislider/nouislider.min.js' %}"></script>
@@ -709,6 +716,7 @@
     <!-- custom scripts-->
     <script src="{% static 'js/mycart.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/payment.js' %}"></script>
 </body>
 
 
