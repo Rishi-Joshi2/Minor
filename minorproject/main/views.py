@@ -25,7 +25,16 @@ def filtering_out_data_category_wise():
 def home(request):
     products1=filtering_out_data_category_wise()
     print(products1)
-    context={'products1':products1}
+    amount = 0
+    cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+    for p in cart_product:
+        tempamount = (p.quantity*p.product_id.mrp)
+        amount+=tempamount
+
+    totalpurchased = len(cart_product)
+
+    context={'products1':products1,'totalpurchased':totalpurchased}
     return render(request,'main/index.html', context)
 
 # Create your views here.
@@ -94,8 +103,16 @@ def product_details(request,pk):
     product_information = product.objects.get(pk = pk)
     prod_cat = product.objects.filter(cat_id=product_information.cat_id)
     print(prod_cat)
+    amount = 0
+    cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
 
-    context = {'product_information':product_information}
+    for p in cart_product:
+        tempamount = (p.quantity*p.product_id.mrp)
+        amount+=tempamount
+
+    totalpurchased = len(cart_product)
+
+    context = {'product_information':product_information,'totalpurchased':totalpurchased}
     return render(request,'main/product-default.html',context)
 
 def add_to_cart(request):
@@ -224,7 +241,17 @@ def category(request,catid):
     print(spe)
     products_details = product.objects.filter(cat_id=spe)
     print(products_details)
-    context = {'spe':spe,'value':products_details}
+
+    amount = 0
+    cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+    for p in cart_product:
+        tempamount = (p.quantity*p.product_id.mrp)
+        amount+=tempamount
+
+    totalpurchased = len(cart_product)
+
+    context = {'spe':spe,'value':products_details,'totalpurchased':totalpurchased}
     return render(request,'main/shop-default.html',context)
 
 import razorpay
@@ -320,10 +347,19 @@ def autocomplete(request):
 
 def searched(request):
     if request.method == "POST":
+        amount = 0
+        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+        for p in cart_product:
+            tempamount = (p.quantity*p.product_id.mrp)
+            amount+=tempamount
+
+        totalpurchased = len(cart_product)
+
         searched_query = request.POST.get('product')
         print(searched_query)
         ps = product.objects.filter(medicinename__icontains = searched_query)
-        context = {'value':ps}
+        context = {'value':ps,'totalpurchased':totalpurchased}
     else:
         not_found = "Get request is not accepted"
         context = {'value':not_found}

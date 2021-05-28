@@ -3,7 +3,12 @@
 
 {% block title %} {{ product_information.medicinename }} {% endblock title %}
 
-{% block mainblock %}     
+{% block mainblock %}  
+<div class="alert alert-success collapse alert-fixed" id = "myAlert">
+    <button type="button" id="linkClose" class="close">&times;</button>
+    <center><strong>Success!</strong> Item added successfully :D</center>
+</div>
+
     <div class="ps-page--product">
         <div class="ps-container">
             <div class="ps-page__container">
@@ -37,7 +42,12 @@
                                             <button class="down"><i class="fa fa-minus"></i></button>
                                             <input class="form-control" type="text" placeholder="1">
                                         </div>
-                                    </figure><a class="ps-btn ps-btn--black" href="#">Add to cart</a>
+                                    </figure>
+                                    {% if request.user.is_authenticated %}
+                                    <div class="ps-product__add-to-cart"><button class="ps-btn ps-btn--fullwidth itee" pid={{product_information.id}} id = {{product_information.id}}>Add To Cart</button></div>
+                                    {% else %}
+                                    <div class="ps-product__add-to-cart"><a class="ps-btn ps-btn--fullwidth itee" pid={{product_information.id}} href="{% url 'login' %}">Add To Cart</a></div>
+                                    {% endif %}
                                    
                                 </div>
                                
