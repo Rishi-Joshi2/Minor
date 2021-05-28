@@ -124,13 +124,16 @@
                 </div>
                 <div class="ps-section__content">
                     <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-item-xl="5" data-owl-duration="1000" data-owl-mousedrag="on">
+                        {% for w in prod_cat %}
                         <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img src="{{ product_information.productpic.url }}" alt=""></a>
+                            
+                            <div class="ps-product__thumbnail"><a href="{% url 'product_details' w.id %}"><img src="{{ w.productpic.url }}" alt=""></a>
                                 <!-- <ul class="ps-product__actions">
                                     <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-bag2"></i></a></li>
                                 </ul> -->
                                 
                             </div>
+                            
                             <div class="ps-product__container"><a class="ps-product__vendor" href="#">Image</a>
                                 <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">Capsule</a>
                                     
@@ -140,93 +143,28 @@
                                     <p class="ps-product__price">Rs.40</p>
                                     
                                 </div>
-                                <div class="ps-product__add-to-cart"><a class="ps-btn ps-btn--fullwidth" href="#">Add To Cart</a></div>
+                                <div class="ps-product__add-to-cart">{% if request.user.is_authenticated %}
+                                    <div class="ps-product__add-to-cart"><button class="ps-btn ps-btn--fullwidth itee" pid={{w.id}} id = {{w.id}}>Add To Cart</button></div>
+                                    {% else %}
+                                    <div class="ps-product__add-to-cart"><a class="ps-btn ps-btn--fullwidth itee" pid={{w.id}} href="{% url 'login' %}">Add To Cart</a></div>
+                                    {% endif %}</div>
                             </div>
                         </div>
+                        {% endfor %}
+                        
                         <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/products/shop/12.jpg" alt=""></a>
+                            <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/products/shop/17.jpg" alt=""></a>
                                 <ul class="ps-product__actions">
                                     <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Image</a>
-                                <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">Crocin</a>
-                                    
-                                    <p class="ps-product__price">Rs.70</p>
-                                </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title" href="product-default.html">Crocin</a>
-                                    <p class="ps-product__price">Rs.70</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/products/shop/13.jpg" alt=""></a>
-                                
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Image</a>
-                                <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">Paracetamol</a>
-                                    
-                                    <p class="ps-product__price ">Rs.60 </p>
-                                </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title" href="product-default.html">Paracetamol</a>
-                                    <p class="ps-product__price ">Rs.60</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/products/shop/14.jpg" alt=""></a>
-                               
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                                                    </ul>
-                            </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Image</a>
-                                <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">Sumo</a>
-                                    
-                                    <p class="ps-product__price">Rs40 </p>
-                                </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title" href="product-default.html">Sumo</a>
-                                    <p class="ps-product__price">Rs.40 </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/products/shop/15.jpg" alt=""></a>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                    
-                                </ul>
+                                   </ul>
                             </div>
                             <div class="ps-product__container"><a class="ps-product__vendor" href="#">Image</a>
                                 <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">Crocin</a>
                                    
-                                    <p class="ps-product__price">Rs.20</p>
+                                    <p class="ps-product__price">Rs.30</p>
                                 </div>
                                 <div class="ps-product__content hover"><a class="ps-product__title" href="product-default.html">Crocin</a>
-                                    <p class="ps-product__price ">Rs.20</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img src="img/products/shop/16.jpg" alt=""></a>
-                                
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Image</a>
-                                <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">Sumo</a>
-                                    A
-                                    <p class="ps-product__price">Rs.10 </p>
-                                </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title" href="product-default.html">Sumo</a>
-                                    <p class="ps-product__price">Rs.10</p>
+                                    <p class="ps-product__price">Rs.30</p>
                                 </div>
                             </div>
                         </div>

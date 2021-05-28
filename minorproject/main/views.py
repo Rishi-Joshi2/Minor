@@ -112,7 +112,8 @@ def product_details(request,pk):
 
     totalpurchased = len(cart_product)
 
-    context = {'product_information':product_information,'totalpurchased':totalpurchased}
+    
+    context = {'product_information':product_information,'totalpurchased':totalpurchased,'prod_cat':prod_cat}
     return render(request,'main/product-default.html',context)
 
 def add_to_cart(request):
