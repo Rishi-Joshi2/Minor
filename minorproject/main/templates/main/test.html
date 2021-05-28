@@ -39,7 +39,7 @@
                 
             </div>
             <div class="header__content-center">
-                <form id="search-form" class="ps-form--quick-search" autocomplete="off">
+                <form id="search-form" class="ps-form--quick-search" autocomplete="off" action="{% url 'searched' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group--icon"><i class="icon-chevron-down"></i>
                         <select class="form-control">
@@ -51,7 +51,8 @@
                     </div>
                     
                     <input class="form-control" type="text" placeholder="Search something here..." name="product" id="search-input">
-                    <div id="result-box" class="result-card not-visible">Test</div>
+                    <br>
+                    <div id="result-box" class="result-card not-visible"></div>
                     <button>Search</button>
 
                 </form>

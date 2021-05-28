@@ -296,12 +296,35 @@ def handlerequest(request):
         return render(request, 'main/success.html')
 
 def autocomplete(request):
-    if 'term' in request.GET:
-        qs = product.objects.filter(medicinename__icontains=request.GET.get('term'))
-        titles = list()
-        print("kuch to ho rha hai")
-        for i in qs:
-            titles.append(i.title)
-        # titles = [product.title for product in qs]
-        return JsonResponse(titles, safe=False)
-    return render(request, 'core/home.html')
+    if request.is_ajax():
+        res = None
+        product_name = request.POST.get('product_name')
+        print(product_name)
+        ps = product.objects.filter(medicinename__icontains = product_name)
+        print(ps)
+        if len(ps) > 0 and len(product_name)>0:
+            data = []
+            for pos in ps:
+                item={
+                    'pk':pos.pk,
+                    'name':pos.medicinename,
+                    'img':str(pos.productpic.url)
+                }
+                data.append(item)
+            res = data
+        else:
+            res = 'No result found...'
+
+        return JsonResponse({'data':res})
+    return JsonResponse({})
+
+def searched(request):
+    if request.method == "POST":
+        searched_query = request.POST.get('product')
+        print(searched_query)
+        ps = product.objects.filter(medicinename__icontains = searched_query)
+        context = {'value':ps}
+    else:
+        not_found = "Get request is not accepted"
+        context = {'value':not_found}
+    return render(request,'main/shop-default.html',context)

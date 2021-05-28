@@ -17,5 +17,6 @@ urlpatterns = [
     path("category/<int:catid>",views.category, name = 'category'),
     # path("payment_done",views.payment_done, name = 'payment_done'),
     path('handlerequest/', views.handlerequest, name = 'handlerequest'),
-    path('', views.autocomplete, name='autocomplete'),
+    path('autocomplete/', views.autocomplete, name='autocomplete'),
+    path('searched/',views.searched,name='searched')
 ]

@@ -23,7 +23,58 @@ const searchInput = document.getElementById('search-input')
 const resultBox = document.getElementById('result-box')
 
 const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
-console.log(csrf)
+
+const sendSearchData = (product_name) => {
+    $.ajax({
+        type:'POST',
+        url: 'autocomplete/',
+        data: {
+            'csrfmiddlewaretoken':csrf,
+            'product_name':product_name,
+        },
+        success: (resp)=> {
+            console.log(resp.data)
+            const data = resp.data
+            if (Array.isArray(data)){
+                resultBox.innerHTML=""
+                data.forEach(product_name=> {
+                    resultBox.innerHTML = `
+                    <a href = "${url}product_details/${product_name.pk}" class = "">
+                        <div class = "row mt-2 mb-2">
+                            <div class="col-2">
+                                <img src = "${product_name.img}" class ="gam-ing">
+                            </div>
+                            <div class="col-10">
+                                <h5> ${product_name.name} </h5>
+                            </div>
+                        <div>
+                    `
+                })
+            }
+            else{
+                if(searchInput.value.length >0){
+                    resultBox.innerHTML=`<b></b>`
+                }
+                else{
+                    resultBox.classList.add('not-visible')
+                }
+            }
+        },
+        error: (err)=> {
+            console.log(err)
+        }
+    })
+}
+
+searchInput.addEventListener('keyup', e=>{
+    console.log(e.target.value)
+
+    if(resultBox.classList.contains('not-visible')){
+        resultBox.classList.remove('not-visible')
+    }
+
+    sendSearchData(e.target.value)
+})
 
 $(document).ready(function () {
     $('#btnSubmit').click(function () {

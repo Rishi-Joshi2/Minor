@@ -47,6 +47,12 @@
   display: none;
 }
 
+.game-ing{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 .result-card{
   width: 50%;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.25);
