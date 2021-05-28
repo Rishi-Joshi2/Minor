@@ -321,7 +321,7 @@ def handlerequest(request):
             x.save()
             i.delete()
 
-        return render(request, 'main/success.html')
+        return redirect('/account/invoices')
 
 def autocomplete(request):
     if request.is_ajax():

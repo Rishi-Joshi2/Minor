@@ -1,7 +1,9 @@
+from typing import ContextManager
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import Profile
+from main.models import *
 # Create your views here.
 
 def logReg(request):
@@ -95,8 +97,6 @@ def getGender(s):
     else:
         return 'F'
 
-def invoices(request):
-    pass
 
 def address(request):
     user = request.user
@@ -137,5 +137,25 @@ def edit_address(request):
 
         context = {'user':user}
         return redirect('address')
+    else:
+        return redirect('login')
+
+def invoices(request):
+    user = request.user
+    if user.is_authenticated:
+        order_history = order.objects.filter(cus_id = user)
+        print(order_history)
+
+        amount = 0
+        cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
+
+        for p in cart_product:
+            tempamount = (p.quantity*p.product_id.mrp)
+            amount+=tempamount
+
+        totalpurchased = len(cart_product)
+
+        context = {'order_history':order_history,'totalpurchased':totalpurchased,'user':user}
+        return render(request,'account/invoices.html',context)
     else:
         return redirect('login')

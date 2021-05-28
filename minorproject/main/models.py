@@ -48,8 +48,8 @@ class order(models.Model):
     address_ordered = models.TextField(max_length=150)
     pincode_ordered = models.CharField(max_length=15)
     date_ordered = models.DateTimeField()
-    STATUS_CHOICE = (('Accepted','Accepted'),('Packed','Packed'),('On the Way','On the Way'),('Delivered','Delivered'),('Canceled','Canceled'),('Pending','Pending'))
-    status = models.CharField(max_length=50, choices = STATUS_CHOICE ,default='Pending')
+    STATUS_CHOICE = (('Accepted','Accepted'),('Packed','Packed'),('On the Way','On the Way'),('Delivered','Delivered'),('Canceled','Canceled'),('Order Placed','Order Placed'))
+    status = models.CharField(max_length=50, choices = STATUS_CHOICE ,default='Order Placed')
 
 
     # order_id = models.CharField(unique=True, max_length=100, null=True, blank=True, default=None) 
