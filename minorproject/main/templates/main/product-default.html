@@ -56,52 +56,38 @@
                         <div class="ps-product__content ps-tab-root">
                             <ul class="ps-tab-list">
                                 <li class="active"><a href="#tab-1">Description</a></li>
-                                <li><a href="#tab-2">Direction for use</a></li>
-                                <li><a href="#tab-3">Safety Information</a></li>
-                                <li><a href="#tab-4">Features and Details</a></li>
+                                <li><a href="#tab-2">Safety Information</a></li>
+                                <li><a href="#tab-3">Features and Details</a></li>
                             </ul>
                             <div class="ps-tabs">
                                 <div class="ps-tab active" id="tab-1">
                                     <div class="ps-document">
                                         <h5>Description</h5>
-                                       <p>CALPOL 500MG contains Paracetamol which belongs to a group of medicines called analgesic and antipyretics.Calpol Tablet is a pain-relieving medicine.</p>
-                                        <p>It is used for relieving fever and pain including toothache, headache, migraine, muscle ache, period pain, etc. While taking this medicine you should not take other medicines containing paracetamol. Patients with the existing liver condition should take advice from a doctor before taking this medicine. Do not take more than the recommended dose and keep a gap of a minimum of 4 hours between two consecutive doses.</p>                                    </div>
+                                       <p>{{ product_information.productdescription }}</p>
+                                        <p></p>                                    </div>
                                 </div>
+                               
                                 <div class="ps-tab" id="tab-2">
-                                    <div class="ps-document">
-                                         <h5>Direction for Use</h5>
-                                         <ul>
-                                         <li>For adults: Chew 2-4 tablets, as required, after meals and at bedtime or as advised by physician.</li>
-                                         <li>For children: As advised by physician.</li>
-                                         
-                                         </ul>
-                                        
-                                    </div>
-                                </div>
-                                <div class="ps-tab" id="tab-3">
                                     <h4>Safety Information</h4>
-                                    <ul>
+                                    <!-- <ul>
                                      <li>Read the label carefully before use</li>
                                      <li>Do not exceed the recommended dosage</li>
                                      <li>Store in a cool dry place away from direct sunlight</li>
                                      <li>Keep out of reach of the children</li>
-                                    </ul>
+                                    </ul> -->
 
-                                    <p>Talk to your doctor if
-                                        You have severe liver or kidney disease.
-                                         You are taking any other medicines or products that contain paracetamol.
-                                         You are an alcoholic or are suffering from chronic malnutrition.
-                                         You should not take this medicine too often and for a prolonged duration.
-                                         Always keep a minimum gap of 4-6 hours between two consecutive doses.
-                                        This medicine is not known to interact with alcohol. Moderate consumption of alcohol when you are taking paracetamol is usually safe. However, there is a risk of liver damage in chronic alcoholics and people with liver problems.
-                                        </p>
+                                    <p>{{ product_information.safetyinfo }}</p>
                                 </div>
-                                <div class="ps-tab" id="tab-4">
+                                <div class="ps-tab" id="tab-3">
                                     <h5>Features and Details</h5>
                                     <ul>
-                                    <li> Brand - Calpol 500mg</li>
-                                    <li> Manufacturer - Glaxosmithkline Pharmaceuticals Limited </li>
-                                    <li>   Country of origin - India </li>
+                                    <li> Brand -{{ product_information.brand }}</li>
+                                    <li> Manufacturer - {{ product_information.manufracturer }} </li>
+                                    {% if product_information.prescriptionreq == "F" %}
+                                        <li> Prescription required? - No </li>
+                                    {% else %}
+                                        <li> Prescription required? - Yes </li>
+                                    {% endif %}
                                     </ul>
                                 </div>
                                 

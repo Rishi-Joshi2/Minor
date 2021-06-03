@@ -9,7 +9,7 @@ const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
 const sendSearchData = (product_name) => {
     $.ajax({
         type:'POST',
-        url: 'autocomplete/',
+        url: '/autocomplete/',
         data: {
             'csrfmiddlewaretoken':csrf,
             'product_name':product_name,
@@ -22,7 +22,7 @@ const sendSearchData = (product_name) => {
                 data.forEach(product_name=> {
                     console.log('this should work multiple times',product_name.pk)
                     resultBox.innerHTML += `
-                    <a href = "${url}product_details/${product_name.pk}">
+                    <a href = "/product_details/${product_name.pk}">
                         <div class = "row mt-2 mb-2">
                             <div class="col-1">
                                 <img src = "${product_name.img}" class ="gam-ing">
@@ -68,7 +68,7 @@ const csrf1 = document.getElementsByName('csrfmiddlewaretoken')[0].value
 const sendSearchData1 = (product_name) => {
     $.ajax({
         type:'POST',
-        url: 'autocomplete/',
+        url: '/autocomplete/',
         data: {
             'csrfmiddlewaretoken':csrf1,
             'product_name':product_name,
@@ -81,7 +81,7 @@ const sendSearchData1 = (product_name) => {
                 data.forEach(product_name=> {
                     console.log('this should work multiple times',product_name.pk)
                     resultBoxmobile.innerHTML += `
-                    <a href = "${url}product_details/${product_name.pk}">
+                    <a href = "/product_details/${product_name.pk}">
                         <div class = "row mt-2 mb-2">
                             <div class="col-2">
                                 <img src = "${product_name.img}" class ="gam-ing">
