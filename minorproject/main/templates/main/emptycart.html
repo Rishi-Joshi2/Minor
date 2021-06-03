@@ -1,0 +1,16 @@
+{% extends "main/test.html" %}
+{% load static %}
+
+{% block title %} Categories {% endblock title %}
+
+{% block mainblock %}
+    <div class="ps-page--404">
+        <div class="container">
+            <div class="ps-section__content"><img src="{% static 'img/emptycheckoutpage.jpg' %}" alt="">
+                <h3>Your cart is currently empty</h3>
+                <p><a href="{% url 'home' %}"> Homepage</a></p>
+                
+            </div>
+        </div>
+    </div>
+    {% endblock mainblock %}

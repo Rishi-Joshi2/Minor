@@ -1,171 +1,79 @@
 {% extends "main/test.html" %}
 {% load static %}
 
-{% block title %} About Us {% endblock title %}
+{% block title %} Policies {% endblock title %}
 
 {% block mainblock %}
     <div class="ps-breadcrumb">
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li>Shop categories</li>
+                <li>Policies</li>
             </ul>
         </div>
     </div>
 
-    <div class="ps-page--single" id="about-us"><img src="{% static 'img/bg/about-us.jpg' %}" alt="">
-        <div class="ps-about-intro">
-            <div class="container">
-                <div class="ps-section__header">
-                    <h4>Welcome to Navkar Medical</h4>
-                    <h3>We connect millions of buyers and sellers around the world, empowering people & creating economic opportunity for all.</h3>
-                    <p>Within our markets, millions of people around the world connect, both online and offline, to make, sell and buy unique goods. We also offer a wide range of Seller Services and tools that help creative entrepreneurs start, manage and scale their businesses. Our mission is to reimagine commerce in ways that build a more fulfilling and lasting world, and we’re committed to using the power of business to strengthen communities and empower people.</p>
-                </div>
-                <div class="ps-section__content">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
-                            <div class="ps-block--icon-box"><i class="icon-cube"></i>
-                                <h4>45M</h4>
-                                <p>Product for sale</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
-                            <div class="ps-block--icon-box"><i class="icon-store"></i>
-                                <h4>1.8M</h4>
-                                <p>Sellers Active on Martfury</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
-                            <div class="ps-block--icon-box"><i class="icon-bag2"></i>
-                                <h4>30.6M</h4>
-                                <p>Buyer active on Martfury</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
-                            <div class="ps-block--icon-box"><i class="icon-cash-dollar"></i>
-                                <h4>$2.46M</h4>
-                                <p>Annual gross merchandise sales</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--include ../../partials/pages/about-us/milestone-->
-        <!-- <div class="ps-our-team">
-            <div class="container">
-                <div class="ps-section__header">
-                    <h3>Meet Our Leaders</h3>
-                </div>
-                <div class="ps-section__content">
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/1.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/2.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/3.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/4.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/5.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/6.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/7.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure data-mh="our-team">
-                        <div class="ps-block--ourteam blank"><a href="#">Become <br> member in <br> team</a></div>
-                    </figure>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="ps-about-awards">
-            <div class="container">
-                <div class="ps-section__header">
-                    <h4>Awards & Recognition</h4>
-                    <p>Industry leaders and influencers recognize Overstock as one of the most trust worthy retail companies in the U.S., ranking high for both customer and employee satisfaction.</p>
-                </div>
-                <div class="ps-section__content">
-                    <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="15000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1500" data-owl-mousedrag="off"><a href="#"><img src="{% static 'img/awards/1.png' %}" alt=""></a><a href="#"><img src="{% static 'img/awards/2.png' %}" alt=""></a><a href="#"><img src="{% static 'img/awards/3.png' %}" alt=""></a><a href="#"><img src="{% static 'img/awards/4.png' %}" alt=""></a><a href="#"><img src="{% static 'img/awards/5.png' %}" alt=""></a></div>
-                </div>
-            </div>
-        </div> -->
-    </div>
+    <div class="container" >
+        <p>
+      <h2>Privacy Policy</h2>
+  
+  The purpose of this privacy policy statement is to explain to you what personal information We collect from your visit(s) to our Website, and how We protect the information that you provide to us when you use our Website. You can be assured that Navkaar Medical will use such information sensibly and carefully, and only in accordance with this privacy statement. We maintain compliance with the highest standards of website privacy, so our visitors/Customers can securely place orders on our Website. This Privacy Policy is effective from 26/05/2021. Any information that you provide to Navkaar Medical is subject to our Privacy Policy.<br><br>
+  
+  <h4>1. Your authorization:</h4>
+  
+  1.1 By accessing this Website and whenever you submit any information to Navkaar Medical, or use products and services offered by our Website, you agree to be bound by the terms of this Privacy Policy. Please read below carefully the entire Privacy Policy before using Navkaar Medical website.<br><br>
+  
+  1.2 As part of providing our Services to you, We may need to send routine communications to you, such as order transaction emails and other administrative messages through email and notifications posted on the Website or through other means available, including text and other forms of messaging. Though we prefer to communicate with our Customers via email, as may be deemed necessary, you agree to receive our phone calls, related to your orders/request on Navkaar Medical.<br><br>
+  
+  1.3 You must ensure to provide us with the correct or up-to-date Personal Information. This will allow us to contact you for further correspondences with respect to your order at Navkaar Medical. We are not responsible for any inaccurate information you provide to us, which may affect your shopping experience on our website.<br><br>
+  
+  <h4>2. What Information We Collect About You</h4>
+  
+  2.1 We do not automatically collect your personally identifiable information. However, you might provide us with your personal and demographic information – including your name, address, phone number, email address and your medical prescription(s) – in the following ways:<br>
+  As a New Customer, when you register/create an account, place your order, or upload your medical prescription at Navkaar Medical,
+  As an Existing Customer, when you update your existing profile on Navkaar Medical.<br><br>
+  
+  <h4>3. How We Use the Information Collected from You</h4>
+  
+  3.1 We will collect and retain your personally identifiable information only to the extent that it is necessary to fulfil our services to you. Any Personal information submitted by you to the Website or collected by us will be used ONLY for the purposes mentioned below:<br><br>
+  
+  3.1.1 To carry out our obligations arising from your requests for our products and services;<br><br>
+  
+  3.1.2 To improve our Website's functionality, and to customise your future shopping experience with us;<br><br>
+  
+  3.1.3 To make sure that our Website content is presented in the manner that is most effective for you;<br><br>
+  
+  3.1.4 To communicate with you about any changes to our services;<br><br>
+  
+  3.1.5 To verify your identity and perform checks to prevent fraud.<br><br>
+  
+  <h4>4. With Whom We Share Your Information-</h4>
+  
+  We do not sell, rent or exchange your any personally identifiable information that you provide to us through this Website with any third party for commercial reasons. However, We engage trusted online payment service partners to perform payment processing and authorisation services (for net banking or credit/debit card validation). Through your use of the Navkaar Medical Services, you consent to our collection and transfer of your information to our payment service partner websites and third party service providers.<br><br>
+  
+  <h4>5. Security Policy</h4>
+  
+  We guarantee that all your personal information with us is secure Navkaar Medical takes careful precaution to protect our Customers' personal information from unauthorised access, improper use or disclosure or unauthorised modification. To prevent unauthorised access, we have put in place the latest industry-standard security technology and procedures to safeguard the information we collect online. Your personal information is encrypted and is protected with 256-bit Secure Sockets Layer (SSL) software and CSRF(Cross-Site Request Forgery), which encrypts all information you input. We store your personally identifiable information on the computer servers placed in a secure environment. Even though we have taken significant steps to protect your personally identifiable information, no company, including our Website, can fully eliminate security risks associated with Personal Information.<br><br>
+  
+  <h4>6. Maintain Confidentiality of Your Prescription</h4>
+  
+  We understand the confidential nature of the prescription you provide us to process your medication order and we treat your prescription as a protected information.<br><br>
+  
+  <h4>7. Changes to Our Privacy Policy</h4>
+  
+  We may revise this Privacy Policy from time to time by updating this page, and so we urge you to review it periodically to ensure that you agree with any such changes that we make. We will make best efforts to inform you of any important amendments by e-mail, message on the Website or notification in Your Account. However, it is your responsibility to check the Policy regularly to ensure that you agree with it and your continued use of the Website will be deemed to be your acceptance of any changes that we make.
+  
+  Last updated Date: 26/05/2021.<br><br>
+  
+  <h4>8. Contact Information</h4>
+  
+  If you have questions about this Privacy Policy, please contact <br>
+  <h4>Shubham Bhandari (s.bhandari0203@gmail.com) or call 9425321530.</h4>
+  
+  </p>
+  
+  
+      </div>
+  
     
 {% endblock mainblock %}

@@ -1,21 +1,3 @@
-// $(function () {
-//     $("#product").autocomplete({
-//         source: ['js','python','php']
-//     });
-// });
-
-// $(function () {
-//     $("#product2").autocomplete({
-//         source: ['js','python','php']
-//     });
-// });
-
-// $(function () {
-//     $("#product3").autocomplete({
-//         source: ['js','python','php']
-//     });
-// });
-
 console.log('hello world')
 const url = window.location.href
 const searchForm = document.getElementById('search-form')
@@ -23,7 +5,7 @@ const searchInput = document.getElementById('search-input')
 const resultBox = document.getElementById('result-box')
 
 const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
-
+// resultBox.innerHTML = ` add a + symbole here to make multiple recommendations
 const sendSearchData = (product_name) => {
     $.ajax({
         type:'POST',
@@ -38,22 +20,24 @@ const sendSearchData = (product_name) => {
             if (Array.isArray(data)){
                 resultBox.innerHTML=""
                 data.forEach(product_name=> {
-                    resultBox.innerHTML = `
-                    <a href = "${url}product_details/${product_name.pk}" class = "">
+                    console.log('this should work multiple times',product_name.pk)
+                    resultBox.innerHTML += `
+                    <a href = "${url}product_details/${product_name.pk}">
                         <div class = "row mt-2 mb-2">
-                            <div class="col-2">
+                            <div class="col-1">
                                 <img src = "${product_name.img}" class ="gam-ing">
                             </div>
-                            <div class="col-10">
+                            <div class="col-11">
                                 <h5> ${product_name.name} </h5>
                             </div>
-                        <div>
+                        </div>
+                    </a>
                     `
-                })
+                });
             }
             else{
                 if(searchInput.value.length >0){
-                    resultBox.innerHTML=`<b></b>`
+                    resultBox.innerHTML=resp.data
                 }
                 else{
                     resultBox.classList.add('not-visible')
@@ -65,7 +49,6 @@ const sendSearchData = (product_name) => {
         }
     })
 }
-
 searchInput.addEventListener('keyup', e=>{
     console.log(e.target.value)
 
@@ -74,6 +57,66 @@ searchInput.addEventListener('keyup', e=>{
     }
 
     sendSearchData(e.target.value)
+})
+
+const searchFormmobile = document.getElementById('search-form-mobile')
+const searchInputmobile = document.getElementById('search-input-mobile')
+const resultBoxmobile = document.getElementById('result-box-mobile')
+
+const csrf1 = document.getElementsByName('csrfmiddlewaretoken')[0].value
+// resultBox.innerHTML = ` add a + symbole here to make multiple recommendations
+const sendSearchData1 = (product_name) => {
+    $.ajax({
+        type:'POST',
+        url: 'autocomplete/',
+        data: {
+            'csrfmiddlewaretoken':csrf1,
+            'product_name':product_name,
+        },
+        success: (resp)=> {
+            console.log(resp.data)
+            const data = resp.data
+            if (Array.isArray(data)){
+                resultBoxmobile.innerHTML=""
+                data.forEach(product_name=> {
+                    console.log('this should work multiple times',product_name.pk)
+                    resultBoxmobile.innerHTML += `
+                    <a href = "${url}product_details/${product_name.pk}">
+                        <div class = "row mt-2 mb-2">
+                            <div class="col-2">
+                                <img src = "${product_name.img}" class ="gam-ing">
+                            </div>
+                            <div class="col-10">
+                                <h5> ${product_name.name} </h5>
+                            </div>
+                        </div>
+                    </a>
+                    `
+                });
+            }
+            else{
+                if(searchInputmobile.value.length >0){
+                    resultBoxmobile.innerHTML=resp.data
+                }
+                else{
+                    resultBoxmobile.classList.add('not-visible')
+                }
+            }
+        },
+        error: (err)=> {
+            console.log(err)
+        }
+    })
+}
+
+searchInputmobile.addEventListener('keyup', e=>{
+    console.log(e.target.value)
+
+    if(resultBoxmobile.classList.contains('not-visible')){
+        resultBoxmobile.classList.remove('not-visible')
+    }
+
+    sendSearchData1(e.target.value)
 })
 
 $(document).ready(function () {
@@ -90,6 +133,22 @@ $(document).ready(function () {
         $('#myAlert').hide('fade');
     });
 });
+
+$(document).ready(function () {
+    $('#btnSubmit1').click(function () {
+        $('#myAlert1').show('fade');
+
+        setTimeout(function () {
+            $('#myAlert1').hide('fade');
+        }, 5000);
+
+    });
+
+    $('#linkClose1').click(function () {
+        $('#myAlert1').hide('fade');
+    });
+});
+
 
 // window.setTimeout(function() {
 //     $(".alert").fadeTo(500, 0).slideUp(500, function(){

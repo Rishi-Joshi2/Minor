@@ -19,12 +19,11 @@ def filtering_out_data_category_wise():
             if(k.cat_id.cat_name==j):
                 temp.append(k)        
         mydict[j] = temp
-    print(mydict)
+    #print(mydict)
     return mydict
 
 def home(request):
     products1=filtering_out_data_category_wise()
-    print(products1)
     amount = 0
     cart_product = [p for p in cart.objects.all() if p.cus_id == request.user]
 
@@ -34,7 +33,13 @@ def home(request):
 
     totalpurchased = len(cart_product)
 
-    context={'products1':products1,'totalpurchased':totalpurchased}
+    try:
+        c = cart.objects.filter(cus_id = request.user)
+    except:
+        print("cart query not matched")
+        c = None
+
+    context={'products1':products1,'totalpurchased':totalpurchased,'cart':c}
     return render(request,'main/index.html', context)
 
 # Create your views here.
@@ -52,7 +57,17 @@ def shipping(request):
     return render(request,'main/policy.html')
 
 def contactUs(request):
-    return render(request,'main/contact-us.html')
+    context = {'flag':0}
+    if request.method == 'POST':
+        Name = request.POST['Name']
+        Email = request.POST['Email']
+        Subject = request.POST['Subject']
+        Message = request.POST['Message']
+        print(Name,Email,Subject,Message)
+        context['flag']=1
+    
+
+    return render(request,'main/contact-us.html',context)
     
 def cart1(request):
     user = request.user
@@ -73,6 +88,8 @@ def cart1(request):
             amount+=tempamount
 
         totalpurchased = len(cart_product)
+        if totalpurchased == 0:
+            return render(request,'main/emptycart.html')
         data = {
             'totalpurchased':totalpurchased,
             'amount':amount
@@ -277,6 +294,8 @@ def checkout(request):
             amount+=tempamount
 
         totalpurchased = len(cart_product)
+        if totalpurchased == 0:
+            return render(request,'main/emptycart.html')
 
         final_price = amount
 

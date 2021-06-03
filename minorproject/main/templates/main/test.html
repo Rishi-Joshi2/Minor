@@ -12,7 +12,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Navkaar Medical | {% block title %} {% endblock title %}</title>
-    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel = "icon" href ="{% static 'img/logo_4.svg' %}" type="image/icon type">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}">
@@ -51,13 +51,16 @@
                     </div>
                     
                     <input class="form-control" type="text" placeholder="Search something here..." name="product" id="search-input">
-                    <br>
-                    <div id="result-box" class="result-card not-visible"></div>
+                    
+                    <!-- <input class="form-control" type="text" placeholder="Search something here..." id="txtSearch" name="txtSearch"> -->
+                    
+                    
                     <button>Search</button>
 
                 </form>
+                <div id="result-box" class="result-card not-visible"></div>
             </div>
-
+            
             <div class="header__content-right">
                 <div class="header__actions">
                     <div class="ps-block--header-hotline">
@@ -98,33 +101,10 @@
         <div class="ps-container" >
             <ul class="menu menu--medicine">
                 <li><a href="{% url 'categories' %}">All Medicines</a>
-                    <!-- <div class="sub-menu">
-                        <div class="mega-menu__column">
-                            <span class="sub-toggle"></span>
-                            <ul class="mega-menu__list">
-                                <li><a href="http://nouthemes.net/shop">Crocin</a>
-                                </li>
-                                <li><a href="http://nouthemes.net/shop">Paracetamol</a>
-                                </li>
-                                <li><a href="http://nouthemes.net/shop">Telde</a>
-                                </li>
-                                <li><a href="http://nouthemes.net/shop">Sumo</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> -->
+                    
                 </li>
                 <li><a href="homepage-medicine.html">Coronavirus Prevention</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                    <!-- <ul class="sub-menu">
-                        <li><a href="#">Sanitizers &amp; Handwash Products</a>
-                        </li>
-                        <li><a href="#">Masks</a>
-                        </li>
-                        <li><a href="#">Thermometer</a>
-                        </li>
-                        <li><a href="#">Disinfectants</a>
-                        </li>
-                    </ul> -->
+                    
                 </li>
                 
                 <li><a href="{% url 'category' 3 %}">Peronal Care</a>
@@ -163,20 +143,20 @@
         </div>
     </div>
     <div class="navigation--mobile">
-        <div class="navigation__left"><a class="ps-logo" href="index.html"><img src="{% static 'img/LOGO_3.svg' %}" alt=""></a></div>
+        <div class="navigation__left"><a class="ps-logo" href="{% url 'home' %}"><img src="{% static 'img/LOGO_3.svg' %}" alt=""></a></div>
         <div class="navigation__right">
             <div class="header__actions">
-                <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span id = "totalpurchased1"><i>{{totalpurchased}}</i></span></a>
-                    <div class="ps-cart__content">
+                <div class="ps-cart--mini"><a class="header__extra" href="{% url 'cart' %}"><i class="icon-bag2"></i></a>
+                    <!-- <div class="ps-cart__content">
                         
-                        <div class="ps-cart__footer">
+                         <div class="ps-cart__footer">
                             <h3>Sub Total:<strong>Rs.0</strong></h3>
                             <figure><a class="ps-btn" href="{% url 'cart' %}">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="ps-block--user-header">
-                    <div class="ps-block__left"><a href="#"><i class="icon-user"></i></a></div>
+                    <div class="ps-block__left"><a href="{% url 'user_information' %}"><i class="icon-user"></i></a></div>
 
                     {% if user.is_authenticated %}
                     <div class="ps-block__right">
@@ -193,14 +173,7 @@
             </div>
         </div>
     </div>
-    <div class="ps-search--mobile">
-        <form class="ps-form--search-mobile" method="get">
-            <div class="form-group--nest">
-                <input class="form-control" type="text" placeholder="Search something..." name="product2" id="product2">
-                <button><i class="icon-magnifier"></i></button>
-            </div>
-        </form>
-    </div>
+    
 </header>
 
 <div class="ps-panel--sidebar" id="cart-mobile">
@@ -210,16 +183,20 @@
     <div class="navigation__content">
         <div class="ps-cart--mobile">
             <div class="ps-cart__content">
+                {% for i in cart %}
                 <div class="ps-product--cart-mobile">
-                    <div class="ps-product__thumbnail"><a href="#"><img src="{% static 'img/products/clothing/7.jpg' %}" alt=""></a></div>
-                    <div class="ps-product__content"><a class="ps-product__remove" href="#"><i class="icon-cross"></i></a><a href="product-default.html">MVMTH Classical Leather Watch In Black</a>
-                        <p><strong>Sold by:</strong> YOUNG SHOP</p><small>1 x $59.99</small>
+
+                    <div class="ps-product__thumbnail"><a href="{% url 'product_details' i.product_id.id %}"><img src="{{ i.product_id.productpic.url }}" alt=""></a></div>
+                   
+                    <div class="ps-product__content"><a class="ps-product__remove" href="{% url 'product_details' i.product_id.id %}"><i class="icon-cross"></i></a><a href="{% url 'product_details' i.product_id.id %}">{{ i.product_id.medicinename }}</a>
+                        <small> Rs.{{ i.product_id.mrp }}/-</small>
                     </div>
+
                 </div>
+                {% endfor %}
             </div>
             <div class="ps-cart__footer">
-                <h3>Sub Total:<strong>$59.99</strong></h3>
-                <figure><a class="ps-btn" href="{% url 'cart' %}">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
+                <figure><a class="ps-btn" href="{% url 'cart' %}">View Cart</a><a class="ps-btn" href="{% url 'checkout' %}">Checkout</a></figure>
             </div>
         </div>
     </div>
@@ -230,109 +207,52 @@
     </div>
     <div class="ps-panel__content">
         <ul class="menu--mobile">
-            <li><a href="#">Hot Promotions</a>
+            <li><a href="{% url 'categories' %}">All Medicines</a>
+                    
             </li>
-            <li class="menu-item-has-children has-mega-menu"><a href="#">Consumer Electronic</a><span class="sub-toggle"></span>
-                <div class="mega-menu">
-                    <div class="mega-menu__column">
-                        <h4>Electronic<span class="sub-toggle"></span></h4>
-                        <ul class="mega-menu__list">
-                            <li><a href="#">Home Audio &amp; Theathers</a>
-                            </li>
-                            <li><a href="#">TV &amp; Videos</a>
-                            </li>
-                            <li><a href="#">Camera, Photos &amp; Videos</a>
-                            </li>
-                            <li><a href="#">Cellphones &amp; Accessories</a>
-                            </li>
-                            <li><a href="#">Headphones</a>
-                            </li>
-                            <li><a href="#">Videosgames</a>
-                            </li>
-                            <li><a href="#">Wireless Speakers</a>
-                            </li>
-                            <li><a href="#">Office Electronic</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mega-menu__column">
-                        <h4>Accessories &amp; Parts<span class="sub-toggle"></span></h4>
-                        <ul class="mega-menu__list">
-                            <li><a href="#">Digital Cables</a>
-                            </li>
-                            <li><a href="#">Audio &amp; Video Cables</a>
-                            </li>
-                            <li><a href="#">Batteries</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <li><a href="{% url 'category' 2 %}">Coronavirus Prevention</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                
             </li>
-            <li><a href="#">Clothing &amp; Apparel</a>
+            
+            <li><a href="{% url 'category' 3 %}">Peronal Care</a>
             </li>
-            <li><a href="#">Home, Garden &amp; Kitchen</a>
+            
+            <li><a href="{% url 'category' 1 %}">Ayurveda</a>
             </li>
-            <li><a href="#">Health &amp; Beauty</a>
+            <li><a href="{% url 'category' 6 %}">Devices</a>
             </li>
-            <li><a href="#">Yewelry &amp; Watches</a>
+
+
+            <li><a href="{% url 'contactUs' %}">Contact us</a>
             </li>
-            <li class="menu-item-has-children has-mega-menu"><a href="#">Computer &amp; Technology</a><span class="sub-toggle"></span>
-                <div class="mega-menu">
-                    <div class="mega-menu__column">
-                        <h4>Computer &amp; Technologies<span class="sub-toggle"></span></h4>
-                        <ul class="mega-menu__list">
-                            <li><a href="#">Computer &amp; Tablets</a>
-                            </li>
-                            <li><a href="#">Laptop</a>
-                            </li>
-                            <li><a href="#">Monitors</a>
-                            </li>
-                            <li><a href="#">Networking</a>
-                            </li>
-                            <li><a href="#">Drive &amp; Storages</a>
-                            </li>
-                            <li><a href="#">Computer Components</a>
-                            </li>
-                            <li><a href="#">Security &amp; Protection</a>
-                            </li>
-                            <li><a href="#">Gaming Laptop</a>
-                            </li>
-                            <li><a href="#">Accessories</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li><a href="#">Babies &amp; Moms</a>
-            </li>
-            <li><a href="#">Sport &amp; Outdoor</a>
-            </li>
-            <li><a href="#">Phones &amp; Accessories</a>
-            </li>
-            <li><a href="#">Books &amp; Office</a>
-            </li>
-            <li><a href="#">Cars &amp; Motocycles</a>
-            </li>
-            <li><a href="#">Home Improments</a>
-            </li>
-            <li><a href="#">Vouchers &amp; Services</a>
+
+            <li><a href="{% url 'aboutus' %}">About Us</a>
             </li>
         </ul>
     </div>
 </div>
 <div class="navigation--list">
-    <div class="navigation__content"><a class="navigation__item ps-toggle--sidebar" href="#menu-mobile"><i class="icon-menu"></i><span> Menu</span></a><a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile"><i class="icon-list4"></i><span> Categories</span></a><a class="navigation__item ps-toggle--sidebar" href="#search-sidebar"><i class="icon-magnifier"></i><span> Search</span></a><a class="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i class="icon-bag2"></i><span> Cart</span></a></div>
+    <div class="navigation__content">
+        <!-- <a class="navigation__item ps-toggle--sidebar" href="#menu-mobile"><i class="icon-menu"></i><span> Menu</span></a> -->
+        <a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile"><i class="icon-list4"></i>
+        <span> Categories</span></a><a class="navigation__item ps-toggle--sidebar" href="#search-sidebar"><i class="icon-magnifier"></i><span> Search</span></a><a class="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i class="icon-bag2"></i><span> Cart</span></a></div>
 </div>
 <div class="ps-panel--sidebar" id="search-sidebar">
     <div class="ps-panel__header">
-        <form class="ps-form--search-mobile" method="get">
+        <form id="search-form-mobile" class="ps-form--search-mobile" autocomplete="off" action="{% url 'searched' %}" method="POST">
+            {% csrf_token %}
             <div class="form-group--nest">
-                <input class="form-control" type="text" placeholder="Search something..." name="product3" id="product3">
+                <input class="form-control" type="text" placeholder="Search something here..." name="product" id="search-input-mobile">
                 <button><i class="icon-magnifier"></i></button>
+                
             </div>
         </form>
+        <!-- <div id="result-box-mobile" class="result-card not-visible">abc</div> -->
+        
     </div>
-    <div class="navigation__content"></div>
+    <div class="navigation__content">
+        <div id="result-box-mobile" class="result-card not-visible"></div>
+    </div>
 </div>
 <div class="ps-panel--sidebar" id="menu-mobile">
     <div class="ps-panel__header">

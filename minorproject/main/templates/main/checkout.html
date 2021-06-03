@@ -12,10 +12,16 @@
     </div>
 </div>
 
+<div class="alert alert-danger collapse alert-fixed" id = "myAlert1">
+    <button type="button" id="linkClose1" class="close">&times;</button>
+    <center><strong>Error!</strong> Delivery not available for your area :(</center>
+</div>
+
 <div class="alert alert-danger collapse alert-fixed" id = "myAlert">
     <button type="button" id="linkClose" class="close">&times;</button>
     <center><strong>Error!</strong> Please update your Shipping Address first :D</center>
 </div>
+
         <section class="ps-section--account ps-checkout">
             <div class="container">
                 <div class="ps-section__header">
@@ -97,7 +103,7 @@
                                             <figure>
                                                 <figcaption><strong>Subtotal</strong><strong>Rs.{{ amount }}/-</strong></figcaption>
                                             </figure>
-                                            {% if user.profile.address1 != "Null" %}
+                                            {% if user.profile.address1 != "Null" and user.profile.pincode1 == "452009" %}
                                                 <button id="rzp-button1" type="button" class="ps-btn ps-btn--fullwidth">Proceed to payment</a>
                                                     <!-- <input id = "{{order_id}}" type="hidden"> -->
                                                     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -126,6 +132,8 @@
                                                             e.preventDefault();
                                                         }
                                                     </script>
+                                            {% elif user.profile.pincode1 != "Null" and user.profile.pincode1 != "452009" %}
+                                                <a class="ps-btn ps-btn--fullwidth btnSubmit1" id="btnSubmit1" href="#">Proceed to payment</a>
                                             {% else %}
                                                 <a class="ps-btn ps-btn--fullwidth btnSubmit" id="btnSubmit" href="#">Proceed to payment</a>
                                             {% endif %}

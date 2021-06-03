@@ -1,171 +1,170 @@
 {% extends "main/test.html" %}
 {% load static %}
 
-{% block title %} About Us {% endblock title %}
+{% block title %} Terms and Conditions {% endblock title %}
 
 {% block mainblock %}
     <div class="ps-breadcrumb">
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li>Shop categories</li>
+                <li>Terms and Conditions</li>
             </ul>
         </div>
     </div>
 
-    <div class="ps-page--single" id="about-us"><img src="{% static 'img/bg/about-us.jpg' %}" alt="">
-        <div class="ps-about-intro">
-            <div class="container">
-                <div class="ps-section__header">
-                    <h4>Welcome to Navkar Medical</h4>
-                    <h3>We connect millions of buyers and sellers around the world, empowering people & creating economic opportunity for all.</h3>
-                    <p>Within our markets, millions of people around the world connect, both online and offline, to make, sell and buy unique goods. We also offer a wide range of Seller Services and tools that help creative entrepreneurs start, manage and scale their businesses. Our mission is to reimagine commerce in ways that build a more fulfilling and lasting world, and we’re committed to using the power of business to strengthen communities and empower people.</p>
-                </div>
-                <div class="ps-section__content">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
-                            <div class="ps-block--icon-box"><i class="icon-cube"></i>
-                                <h4>45M</h4>
-                                <p>Product for sale</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
-                            <div class="ps-block--icon-box"><i class="icon-store"></i>
-                                <h4>1.8M</h4>
-                                <p>Sellers Active on Martfury</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
-                            <div class="ps-block--icon-box"><i class="icon-bag2"></i>
-                                <h4>30.6M</h4>
-                                <p>Buyer active on Martfury</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
-                            <div class="ps-block--icon-box"><i class="icon-cash-dollar"></i>
-                                <h4>$2.46M</h4>
-                                <p>Annual gross merchandise sales</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--include ../../partials/pages/about-us/milestone-->
-        <!-- <div class="ps-our-team">
-            <div class="container">
-                <div class="ps-section__header">
-                    <h3>Meet Our Leaders</h3>
-                </div>
-                <div class="ps-section__content">
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/1.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/2.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/3.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/4.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/5.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/6.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="ps-block--ourteam"><img src="{% static 'img/users/our-team/7.jpg' %}" alt="">
-                            <div class="ps-block__content">
-                                <h4>Robert Downey Jr</h4>
-                                <p>CEO Fouder</p>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </figure>
-                    <figure data-mh="our-team">
-                        <div class="ps-block--ourteam blank"><a href="#">Become <br> member in <br> team</a></div>
-                    </figure>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="ps-about-awards">
-            <div class="container">
-                <div class="ps-section__header">
-                    <h4>Awards & Recognition</h4>
-                    <p>Industry leaders and influencers recognize Overstock as one of the most trust worthy retail companies in the U.S., ranking high for both customer and employee satisfaction.</p>
-                </div>
-                <div class="ps-section__content">
-                    <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="15000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1500" data-owl-mousedrag="off"><a href="#"><img src="{% static 'img/awards/1.png' %}" alt=""></a><a href="#"><img src="{% static 'img/awards/2.png' %}" alt=""></a><a href="#"><img src="{% static 'img/awards/3.png' %}" alt=""></a><a href="#"><img src="{% static 'img/awards/4.png' %}" alt=""></a><a href="#"><img src="{% static 'img/awards/5.png' %}" alt=""></a></div>
-                </div>
-            </div>
-        </div> -->
-    </div>
+    <div class="container" >
+        <p><h2>TERMS & CONDITIONS:</h2>
+    
+              The following are the Terms and Conditions, read together with the Privacy Policy, that govern your purchase and use of the products and services from Navkaar Medical, and constitute a legally binding agreement, between you ("the Customer", the "User" or "the Caregiver").<br><br>
+    
+     <h3>1.CREATING AN ACCOUNT:</h3>
+    
+    1.1 For using features of the Website, you must set up an account with Navkaar Medical and provide certain information about yourself as prompted by the Register form, including, your name, email address, account password. All of your registration information is protected by our Privacy Policy.
+    
+    1.2 This is your responsibility that the information you submit during registration is truthful and accurate and that you will maintain the accuracy of such information.
+    
+    1.3 Your Navkaar Medical Account username and password are personal to you. You may not transfer your account and you will be responsible for the activities associated with your Navkaar Medical  Account.
+    
+    1.4 It is your responsibility to register the accurate contact number on your account setup at Navkaar Medical so that we can communicate with you electronically.<br><br>
+    
+    <h3>2. PRIVACY POLICY:</h3>
+    
+    We understand the privacy of all information you provide is of a primary importance. This is why we do everything possible to use it carefully and sensibly. This information is never shared with other companies or third party service providers.<br><br>
+    
+    <h3>3. COMMUNICATIONS</h3>
+    
+    By using this Website, it is deemed that you have consented to receiving calls, auto-dialled and/or pre-recorded messages or calls, from us at any time with the use of the telephone number that has been provided by you for the use of this Website, subject to the Privacy Policy.By using this Website, you—who has placed orders with us, or has only signed up, or submitted your personal details in any of our forms—also consent to receive transactional SMS from us at any time we deem fit. This consent to be contacted is for purposes that include and are limited to only clarification calls.<br><br>
+    
+    <h3>4.SECURITY POLICY:</h3>
+    
+    All your transactions are secure when you place an order online at Navkaar Medical. Your personal information is encrypted by using 256-bit Secure Sockets Layer (SSL) encryption technology before being sent over the Internet, which ensures the privacy and high level of security of all your information.
+    <br><br>
+    <h3>5. PRICE AND PAYMENT:</h3>
+    
+    The use of this Website is free of cost and this includes only the usage of certain services of the Website. 
+    
+    For the purpose of this section, Buyer would include user choosing to use the services offered on our Website. Seller means Website(Us).
+    
+    While availing any of the payment methods available on the Website, We will not be responsible or assume any liability, whatsoever in respect of any loss or damage arising directly or indirectly to you due to:<br>
+    
+    i. Lack of authorization for any transaction(s), or<br>
+    
+    ii. Exceeding the preset limit mutually agreed by you and between ‘Bank(s)’, or<br>
+    
+    iii. Any payment issues arising out of the transaction, or<br>
+    
+    iv. Decline of transaction for any other reason(s).<br>
+    
+    All payments made against the services on the Website by you shall be compulsorily in Indian Rupees. The Website will not facilitate transaction with respect to any other form of currency with respect to the purchases made on Website.
+    
+    5.1 All our product prices include all applicable statutory taxes.<br>
+    
+    5.2 We make every effort to make sure that the pricing and availability of Products on our Website is accurate and up to date. However, rarely, there may be an error on the pricing of a product or an error related to product availability. In such cases, we are not responsible for any typographical errors and we reserve the right to cancel the sale.<br>
+    
+    5.3 We reserve the right to correct any inaccuracies or omissions related to pricing and product availability/descriptions, even after you have submitted your order, and to change or update any other information at any time without prior notice.<br>
+    
+    5.5 Delivery times may vary depending on the delivery location, natural circumstances as well as the type of product you order. And the bill will be given at the time of delivery.<br>
+    
+    5.6 You can make the payment via any one of the following methods of payment: Credit/Debit Card, Net Banking .<br>
+    
+    5.7 Credit/Debit Card and Net Banking Payments are processed via our online payment service partners via Razorpay.<br><br>
+    
+    <h3>6. USE OF INFORMATION ON THE WEBSITE:</h3>
+    
+    The information on this Website is not a substitute for professional medical advice or treatment for specific medical conditions. It is important that you do not make medical decisions, and you should always seek the advice from qualified healthcare professional with any questions you may have about your medical condition.<br><br>
+    
+    <h3>7. USER OBLIGATIONS:</h3>
+    
+    7.1 You are a restricted user of this Website.<br>
+    
+    7.2 You are bound not to cut, copy, distribute, modify, recreate, reverse engineer, distribute, disseminate, post, publish or create derivative works from, transfer, or sell any information or software obtained from the Website. With our prior permission limited use may be allowed. For the removal of doubt, it is clarified that unlimited or wholesale reproduction, copying of the content for commercial or non-commercial purposes and unwarranted modification of data and information within the content of the Website is not permitted. You shall not, nor allow third parties on your behalf to (i) make and distribute copies of the Website (ii) attempt to copy, reproduce, alter, modify, reverse engineer, disassemble, decompile, transfer, exchange or translate the Website; or (iii) create derivative works of the Website of any kind whatsoever.<br>
+    
+    7.3 Upload or distribute files that contain viruses, corrupted files, or any other similar software or programs that may damage the operation of the Website or another's computer.<br><br>
+    
+    <h3>8. DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY:</h3>
+    
+    8.1 Navkaar Medical assumes no responsibility for any damages or viruses that may infect your computer equipment or other property on account of your access to, use of, or browsing in this site.<br>
+    
+    8.2 Navkaar Medical has exerted reasonable efforts to ensure that all information published on the Website is accurate at the time of posting, however, there may be errors in such information for which we shall have no liability. We reserve the right to remove or alter any of the information contained on the Website at our sole discretion.<br>
+    
+    8.3 Navkaar Medical  cannot guarantee the adequacy, currency or completeness of the Website content. Navkaar Medical does not warrant or endorse the effectiveness, quality or safety of the Products available on its Website.<br>
+    
+    8.4 We disclaim responsibility for any harm to persons resulting from any instructions or Products referred to in the Website. Navkaar Medical  is not associated with any manufacturer of medicines or other products on the Website. We do not warrant that the Website, or its content will meet your requirements.<br>
+    
+    8.5 Please note that while Navkaar Medical  has made every effort to accurately display the colours of products on its Website, the actual colour you see will depend on your monitor. We cannot guarantee that your monitor's display of any colour will be the same as the colour of the Products delivered to you.<br><br>
+    
+    <h3>9. WEBSITE AVAILABILITY:</h3>
+    
+    We take all reasonable care to ensure the availability of the Navkaar Medical  Website 24 hours every day, 365 days per year. However, the Website may become temporarily unavailable due to maintenance, server or other technical issues, or for reasons beyond our control. <br><br>
+    
+    <h3>10. PRESCRIPTION MEDICATION POLICY:</h3>
+    
+    10.1 Navkaar Medical , a fully licensed and regulated pharmacy, takes all precautions to strictly abide by the laws and regulations set forth in the dispensing of prescription medications. By placing the order for your prescription medicines, you acknowledge and accept the following terms regarding the purchase of any prescription medicines.<br>
+    
+    10.2 Navkaar Medical will not dispense any prescription medication without a valid prescription from a licensed physician.<br>
+    
+    10.3 If you are ordering prescription medication(s), you hereby confirm that you will send us a scanned copy of your valid prescription(s) via email or Whatsapp, and this prescription shall then be subject to the scrutiny of and approval by our qualified Pharmacists.<br>
+    
+    10.4 If our pharmacists have any questions or concerns about the prescription(s) you hereby authorize them to consult with an external network of doctors about the validity of the prescription.<br>
+    
+    10.5 The drug information provided in the Navkaar Medical is for informative purposes only and this Website is not intended to provide diagnosis, treatment or medical advice. We are not liable for any adverse effects or harm to you as a result of your reliance on the information in the Website.<br>
+    
+    10.6 Navkaar Medical  requires either the User or Customer or the Caregiver to confirm he/she is completely aware of the indications, side effects, drug interactions, effects of missed dose or overdose of the medicines he/she orders from us. It is imperative to seek professional advice from your physician before purchasing or consuming any medicine from Navkaar Medical .<br>
+    
+    10.7 At Navkaar Medical , a Caregiver can order prescription medicines on your behalf.<br><br>
+    
+    <h3>11. CANCELLATION, RETURN AND REFUND POLICY:</h3>
+    
+    <h4>Refund Policy:</h4>
+    
+    At Navkaar Medical , we do our best to ensure that you are completely satisfied with our products. And we are happy to issue a full refund based on the conditions listed below:
+    
+    Full Refund Possible If:
+    • you received a defective item;<br>
+    • the ordered item(s) is lost or damaged during transit;<br>
+    • the ordered item(s) is past its expiry date.<br>
+    
+    Please note: Mode of refund may vary depending on circumstances. If the mode of refund is by Credit/Debit Card or Net Banking, please allow 7 to 10 working days for the credit to appear in your account. While we regret any inconvenience caused by this time frame, it is the bank's policy that delays the refund timing and we have no control over that. If the mode of refund is by NMS Wallet, credit should be available within 24 hours.<br>
+    
+    How to Request a Refund:
+    
+    To request a refund, simply email us your order details, including the reason why you're requesting a refund. We take customer feedback very seriously and use it to constantly improve our quality of service.
+    
+    If you have any queries, do call our help desk at 9425321530, email us at s.bhandari0203@gmail.com, or contact our customer support executives through online chat. We're here for you!
+    
+    <h4>Return Policy:</h4>
+    
+    We do our best to ensure that the products you order are delivered according to your specifications. However, should you receive an incomplete order, damaged or incorrect product(s), please notify Navkaar Medical  Customer Support immediately or within 10 working days of receiving the products, to ensure prompt resolution. Please note that Navkaar Medical  will not accept liability for such delivery issues if you fail to notify us within 10 working days of receipt.
+    
+    We also understand that various circumstances may arise leading you to want to return a product or products that are not defective. In these cases, we may allow the return of unopened, unused products after deducting a 20% restocking charge, ONLY if you notify us within 30 working days of receipt.<br>
+    
+    Return Policy Exceptions:
+    
+    Please note that we are unable to offer replacements or exchanges for the following product categories: Injections, Health Monitor & Equipments and Ortho Support. Also, Navkaar Medical  reserves the right to refuse returns (or refunds) for certain products, as marked in the respective product pages as "Note: This item cannot be returned for a refund or exchange."<br><br>
+    
+    <h3>12. LOCATION:</h3>
+    
+    Currently we provide the phone call and SMS services. We also provide option for uploading prescription. For the same please contact us at 9425321530.<br><br>
+    
+    <h3>13. COPYRIGHTS, TRADEMARKS AND OTHER INTELLECTUAL PROPERTY RIGHTS:</h3>
+    
+    13.1 As per the Terms and Conditions of Navkaar Medical, the Website grants access to Users/Customers to view the content solely for visiting, ordering, and communicating only. All materials in this Website/App, including, but not limited to, images, illustrations, text, logos and page headers, that are part of this Website are copyrights and/or other intellectual properties owned by Navkaar Medical Marketplace Limited. All other trademarks not owned by Navkaar Medical that appear on this Website are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by Navkaar Medical.<br>
+    
+    
+    <h3>14. CHANGES TO THESE TERMS AND CONDITIONS:</h3>
+    
+    We reserve the right to amend these terms and conditions from time to time without further notice to you. Any such amendments we make shall be effective once we post a revised version of these Terms and Conditions on the Website. It is your responsibility to review the Navkaar Medical Terms and Conditions regularly. Your continued use of the Website following the publication of any such changes will constitute your agreement to follow and be automatically bound by the amended terms and conditions.
+    
+    Please contact us for any questions or comments regarding these Terms and Conditions.<br><br>
+    <h5>Contact number: 9425321530</h5>
+    <h5>E-mail: s.bhandari0203@gmail.com</h5>
+    <h5>Navkaar Medical</h5> <br><br>
+    
+    
+    
+    
+    
+    </p>
     
 {% endblock mainblock %}
