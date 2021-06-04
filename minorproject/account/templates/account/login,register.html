@@ -54,6 +54,8 @@
 				{% csrf_token %}
  			 <div class="register-form form-hidden">
  			 	<h3>Register</h3>
+				  
+
  			 	<div class="form-group">
  			 		<input type="text" placeholder="First Name*" class="form-control" name="first_name">
  			 	</div>
@@ -69,7 +71,7 @@
  			 	<div class="form-group">
  			 		<input type="password" placeholder="Password*" class="form-control" name="pass2">
  			 	</div>
- 			 	
+ 			 	<p style="font-size: xx-small; color: red;">*By registering on our website you are accepting our <a href="{% url 'termsCondition' %}" style="font-size: xx-small;">Terms and Conditions</a></p>
  			 	<button type="submit" class="submit-btn">Register</button>
  			 	<p><a href="{% url 'home' %}" class="login-btn">Home</a></p>
  			 </div>

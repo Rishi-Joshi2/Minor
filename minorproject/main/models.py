@@ -19,11 +19,16 @@ class product(models.Model):
     prescriptionreq = models.TextField(max_length=50, choices = prescriptiontype ,blank=True)
     mrp=models.IntegerField()
     medquantity=models.IntegerField()
+    quantitydescription = models.CharField(max_length=50,default="Null",null=True,blank=True)
     meduses=models.TextField(max_length=80, null=True, default="NULL")
     safetyinfo=models.TextField(default="NULL",null=True)
     brand=models.CharField(max_length=100,null=True ,default="NULL")
     manufracturer=models.CharField(max_length=100 ,default="NULL", null=True)
 
+    
+
+    class Meta:
+        ordering = ['medquantity'] #Sort in asc order
 
     def __str__(self):
         return self.medicinename

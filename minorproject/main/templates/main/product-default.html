@@ -36,12 +36,9 @@
                                 <h4 class="ps-product__price">Rs.15/-</h4>
                                 <div class="ps-product__shopping">
                                     <figure>
-                                        <figcaption>Quantity</figcaption>
-                                        <div class="form-group--number">
-                                            <button class="up"><i class="fa fa-plus"></i></button>
-                                            <button class="down"><i class="fa fa-minus"></i></button>
-                                            <input class="form-control" type="text" placeholder="1">
-                                        </div>
+                                        <figcaption>Quantity Description:-</figcaption>
+                                            <p>1 unit of this medicine will have {{ product_information.quantitydescription }}</p>
+                                        
                                     </figure>
                                     {% if request.user.is_authenticated %}
                                     <div class="ps-product__add-to-cart"><button class="ps-btn ps-btn--fullwidth itee" pid={{product_information.id}} id = {{product_information.id}}>Add To Cart</button></div>
