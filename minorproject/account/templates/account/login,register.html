@@ -5,6 +5,7 @@
 	<title>Navkaar Medical | Login & Resgister Form</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}">
+	<link rel = "icon" href ="{% static 'img/logo_4.svg' %}" type="image/icon type">
 </head>
 <body>
 	<center>
@@ -39,11 +40,11 @@
  			 	</div>
  			 	<div class="form-group">
  			 		<label>
- 			 			<input type="checkbox"> Remember Me
+ 			 			<!-- <input type="checkbox"> Remember Me -->
  			 		</label>
  			 	</div>
  			 	<button type="submit" class="submit-btn">Login</button>
- 			 	<p><a href="#" class="register-btn">Register</a> | <a href="#" class="lost-pass-btn">Forgot Password ?</a></p>
+ 			 	<p><a href="{% url 'home' %}" class="register-btn">Home</a> | <a href="{% url 'reset_password' %}" class="lost-pass-btn">Forgot Password ?</a></p>
  			 </div>
 			</form>
  			 <!-- Login form End -->
@@ -70,7 +71,7 @@
  			 	</div>
  			 	
  			 	<button type="submit" class="submit-btn">Register</button>
- 			 	<p><a href="#" class="login-btn">Login</a> | <a href="#" class="lost-pass-btn">Forgot Password ?</a></p>
+ 			 	<p><a href="{% url 'home' %}" class="login-btn">Home</a></p>
  			 </div>
 			</form>
  			 <!-- Register form End -->
@@ -86,7 +87,7 @@
  			 	
  			 	
  			 	<button type="button" class="submit-btn">Reset Password</button>
- 			 	<p><a href="#" class="login-btn">Login</a> | <a href="#" class="register-btn">Register</a></p>
+ 			 	<p><a href="{% url 'home' %}" class="login-btn">Home</a></p>
  			 </div>
  			 <!-- Lost Password form End -->
 

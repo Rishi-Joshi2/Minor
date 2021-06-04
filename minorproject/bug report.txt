@@ -4,3 +4,14 @@
         -> Database working fine.
         -> Ajax working fine.
         -> Error may be in html.
+
+        *Solved :D
+
+2) ${url}product_details/${product_name.pk}
+        -> mycart.js
+        -> in url, after success was changed to "/".
+
+3) Index page image's tag = "Navkar Medical"
+        -> change this to "Navkaar Medical"
+
+4) Index page has static data not dynamic
