@@ -18,5 +18,6 @@ urlpatterns = [
     # path("payment_done",views.payment_done, name = 'payment_done'),
     path('handlerequest/', views.handlerequest, name = 'handlerequest'),
     path('autocomplete/', views.autocomplete, name='autocomplete'),
-    path('searched/',views.searched,name='searched')
+    path('searched/',views.searched,name='searched'),
+    path('filter-data/',views.filter_data,name='filter-data')
 ]

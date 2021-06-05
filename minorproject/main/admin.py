@@ -10,7 +10,7 @@ class orderAdmin(admin.ModelAdmin):
 
 class productAdmin(admin.ModelAdmin):
     list_display = ('medicinename','productdescription','productpic','mrp','medquantity','manufracturer')
-    list_editable = ('productdescription','mrp','medquantity')
+    list_editable = ('productdescription','productpic','mrp','medquantity')
     search_fields = ('medicinename',)
 
 admin.site.register(cart)

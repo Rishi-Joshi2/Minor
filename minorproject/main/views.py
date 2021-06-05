@@ -268,8 +268,11 @@ def category(request,catid):
         amount+=tempamount
 
     totalpurchased = len(cart_product)
+    brands = [we.brand for we in product.objects.filter(cat_id=spe)]
+    brands = set(brands)
+    print(brands)
 
-    context = {'spe':spe,'value':products_details,'totalpurchased':totalpurchased}
+    context = {'spe':spe,'value':products_details,'totalpurchased':totalpurchased,'brands':brands}
     return render(request,'main/shop-default.html',context)
 
 import razorpay
@@ -384,3 +387,13 @@ def searched(request):
         not_found = "Get request is not accepted"
         context = {'value':not_found}
     return render(request,'main/shop-default.html',context)
+
+from django.template.loader import render_to_string
+def filter_data(request):
+    brands = request.GET.get('brand[]')
+    print(brands)
+    filtered_brand = [we for we in product.objects.filter(brand=brands)]
+    print('filtered_brand',filtered_brand)
+    t = render_to_string('main/ajax/product-list.html',{'value':filtered_brand})
+    
+    return JsonResponse({'data':t})

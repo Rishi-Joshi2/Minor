@@ -29,61 +29,30 @@
                 <div class="ps-layout__left">
                     <aside class="widget widget_shop">
                         <h4 class="widget-title">BY BRANDS</h4>
-                        <form class="ps-form--widget-search" action="http://nouthemes.net/html/martfury/do_action" method="get">
-                            <input class="form-control" type="text" placeholder="">
-                            <button><i class="icon-magnifier"></i></button>
-                        </form>
                         <figure class="ps-custom-scrollbar" data-height="250">
-                            {% for i in value %}
+                            {% for i in brands %}
                             <div class="ps-checkbox">
-                                <input class="form-control" type="checkbox" id="brand-1" name="brand">
-                                <label for="brand-1">{{i.manufracturer}} (3)</label>
+                                <input class="form-control filter-checkbox" data-filter="brand" type="checkbox" id="{{i}}" name="{{i}}" value="{{i}}">
+                                <label for="{{i}}">{{i}}</label>
                             </div>
                             {% endfor %}
                         </figure>
-                        <!-- <figure>
-                            <h4 class="widget-title">By Price</h4>
-                            <div id="nonlinear"></div>
-                            <p class="ps-slider__meta">Price:<span class="ps-slider__value">$<span class="ps-slider__min"></span></span>-<span class="ps-slider__value">$<span class="ps-slider__max"></span></span></p>
-                        </figure>
-                        <figure>
-                            <h4 class="widget-title">By Price</h4>
-                            <div class="ps-checkbox">
-                                <input class="form-control" type="checkbox" id="review-1" name="review">
-                                <label for="review-1"><span><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i></span><small>(13)</small></label>
-                            </div>
-                            <div class="ps-checkbox">
-                                <input class="form-control" type="checkbox" id="review-2" name="review">
-                                <label for="review-2"><span><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star"></i></span><small>(13)</small></label>
-                            </div>
-                            <div class="ps-checkbox">
-                                <input class="form-control" type="checkbox" id="review-3" name="review">
-                                <label for="review-3"><span><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span><small>(5)</small></label>
-                            </div>
-                            <div class="ps-checkbox">
-                                <input class="form-control" type="checkbox" id="review-4" name="review">
-                                <label for="review-4"><span><i class="fa fa-star rate"></i><i class="fa fa-star rate"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span><small>(5)</small></label>
-                            </div>
-                            <div class="ps-checkbox">
-                                <input class="form-control" type="checkbox" id="review-5" name="review">
-                                <label for="review-5"><span><i class="fa fa-star rate"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span><small>(1)</small></label>
-                            </div>
-                        </figure> -->
+                        
                         
                     </aside>
                 </div>
                 <div class="ps-layout__right">                
                     <div class="ps-shopping ps-tab-root">
                         <div class="ps-shopping__header">
-                            <p><strong> 36</strong> Products found</p>
+                            <!-- <p><strong> 36</strong> Products found</p> -->
                             <div class="ps-shopping__actions">
-                                <select class="ps-select" data-placeholder="Sort Items">
+                                <!-- <select class="ps-select" data-placeholder="Sort Items">
                                     <option>Sort by latest</option>
                                     <option>Sort by popularity</option>
                                     <option>Sort by average rating</option>
                                     <option>Sort by price: low to high</option>
                                     <option>Sort by price: high to low</option>
-                                </select>
+                                </select> -->
                                 <div class="ps-shopping__view">
                                     <p>View</p>
                                     <ul class="ps-tab-list">
@@ -96,7 +65,7 @@
                         <div class="ps-tabs">
                             <div class="ps-tab active" id="tab-1">
                                 <div class="ps-shopping-product">
-                                    <div class="row">
+                                    <div class="row" id="filteredProducts">
                                         {% for j in value %}
                                         <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6 ">
 

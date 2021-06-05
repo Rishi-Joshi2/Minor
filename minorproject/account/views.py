@@ -4,6 +4,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import Profile
 from main.models import *
+from django.core.mail import send_mail
 # Create your views here.
 
 def logReg(request):
@@ -58,7 +59,7 @@ def signup(request):
             messages.info(request,'An Account with this email already exist *_*')
             return render(request,'account/login,register.html')
         if len(username)==0:
-            messages.info(request,'No Username entered *_*')
+            messages.info(request,'Email-address not entered *_*')
             return render(request,'account/login,register.html')
         
         email = request.POST['email']
@@ -78,6 +79,14 @@ def signup(request):
             user.profile.phone_number = fi
 
         user.save()
+        send_mail(
+            'Welcome to Navkaar medical!!!',
+            'Thanks for signing-up. Your are awsome!!!!!!',
+            'Navkaarmedical@gmail.com',
+            [email],
+            fail_silently=False,
+        )
+
         
         return render(request,'account/login,register.html')
     else:

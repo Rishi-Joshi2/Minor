@@ -1,0 +1,22 @@
+{% for j in value %}
+    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6 ">
+
+        <div class="ps-product__container">
+            <div class="ps-product__thumbnail"><a href="{% url 'product_details' j.id %}"><img src="{{ j.productpic.url }}" alt=""></a>
+    
+            </div>
+            <p class="ps-product__price sale">Rs.{{ j.mrp }}
+                <!-- <del>Rs.500</del><small>18% off</small> -->
+            </p>
+            <div class="ps-product__content"><a class="ps-product__title" href="{% url 'product_details' j.id %}">{{ j.medicinename }}</a>
+                
+            </div>
+            {% if request.user.is_authenticated %}
+            <div class="ps-product__add-to-cart"><button class="ps-btn ps-btn--fullwidth itee" pid={{j.id}} id = {{j.id}}>Add To Cart</button></div>
+            {% else %}
+            <div class="ps-product__add-to-cart"><a class="ps-btn ps-btn--fullwidth itee" pid={{j.id}} href="{% url 'login' %}">Add To Cart</a></div>
+            {% endif %}
+        </div>
+
+    </div>
+{% endfor %}
